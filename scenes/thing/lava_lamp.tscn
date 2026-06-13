@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://w7sjbxb1g1bd"]
+
+[ext_resource type="PackedScene" uid="uid://pwoke6irxmf6" path="res://scenes/thing/thing.tscn" id="1_3365r"]
+[ext_resource type="Texture2D" uid="uid://cfeaqb4hisamk" path="res://assets/plant/DefHP Sprites.png" id="2_4q35i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q35i"]
+size = Vector2(36, 74)
+
+[node name="Thing" unique_id=865879477 instance=ExtResource("1_3365r")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=897235112]
+texture = ExtResource("2_4q35i")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(133.59999, 0, 256.8, 260)
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1599315777]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_4q35i")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

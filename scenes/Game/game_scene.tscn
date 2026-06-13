@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmw0lqaoireds"]
 
 [ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/Game/panel.gd" id="1_eajco"]
+[ext_resource type="PackedScene" uid="uid://w7sjbxb1g1bd" path="res://scenes/thing/lava_lamp.tscn" id="2_p3jh1"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 
@@ -25,3 +26,6 @@ offset_right = 41.0
 offset_bottom = 25.0
 text = "00"
 horizontal_alignment = 2
+
+[node name="Thing" parent="." unique_id=865879477 instance=ExtResource("2_p3jh1")]
+position = Vector2(523, 247)
