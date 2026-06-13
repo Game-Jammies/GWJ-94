@@ -1,25 +1,25 @@
 [gd_scene format=3 uid="uid://dmw0lqaoireds"]
 
-[ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/Game/panel.gd" id="1_eajco"]
+[ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/timer/timer.gd" id="1_eajco"]
 [ext_resource type="PackedScene" uid="uid://w7sjbxb1g1bd" path="res://scenes/thing/lava_lamp.tscn" id="2_p3jh1"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=116137435]
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=275334951]
+[node name="Timer" type="Panel" parent="CanvasLayer" unique_id=275334951]
 offset_right = 40.0
 offset_bottom = 25.0
 script = ExtResource("1_eajco")
 
-[node name="Minutes" type="Label" parent="CanvasLayer/Panel" unique_id=233266293]
+[node name="Minutes" type="Label" parent="CanvasLayer/Timer" unique_id=233266293]
 layout_mode = 0
 offset_right = 23.0
 offset_bottom = 25.0
 text = "00:"
 horizontal_alignment = 2
 
-[node name="Seconds" type="Label" parent="CanvasLayer/Panel" unique_id=1056910858]
+[node name="Seconds" type="Label" parent="CanvasLayer/Timer" unique_id=1056910858]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 41.0
