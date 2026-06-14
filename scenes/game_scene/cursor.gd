@@ -15,17 +15,26 @@ var mouse_down : bool = false
 	
 func _process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
-
-	light.global_position = mouse_pos
-	progress.global_position = Vector2(mouse_pos.x - 32, mouse_pos.y - 32)
+	
+	#update positions
+	if not mouse_down:
+		light.global_position = mouse_pos
+		progress.global_position = Vector2(mouse_pos.x - progress.size.x/2, mouse_pos.y - progress.size.y/2)
 
 	if mouse_down:
 		progress.value += (progress.max_value / fill_time) * delta
 		if progress.value >= progress.max_value:
 			progress.value = progress.max_value
+			_thing_selected()
+			
 	else:
 		progress.value = 0
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		mouse_down = event.pressed
+
+func _thing_selected() -> void:
+	"""Trigger for when something has been selected"""
+	# progress.hide() #add show code in the input section
+	pass

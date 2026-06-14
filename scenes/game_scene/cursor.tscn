@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1s0s68jo6qga" path="res://scenes/game_scene/cursor.gd" id="1_thsrq"]
 [ext_resource type="Texture2D" uid="uid://blnvgipcj4kkv" path="res://assets/functional/2d_lights_and_shadows_neutral_point_light.webp" id="1_vfs5k"]
+[ext_resource type="PackedScene" uid="uid://qf14ilriwjgl" path="res://scenes/thing/among_thing.tscn" id="3_thsrq"]
 
 [sub_resource type="Gradient" id="Gradient_thsrq"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
@@ -41,3 +42,5 @@ fill_mode = 4
 texture_under = SubResource("GradientTexture2D_bh42h")
 texture_progress = SubResource("GradientTexture2D_s1lhg")
 tint_under = Color(1, 1, 1, 0)
+
+[node name="among_thing" parent="." unique_id=1990109756 instance=ExtResource("3_thsrq")]
