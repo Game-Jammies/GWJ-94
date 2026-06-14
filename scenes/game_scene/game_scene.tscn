@@ -9,30 +9,35 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108104848]
 
-[node name="PauseMenuController" type="Node" parent="CanvasLayer" unique_id=909361640 node_paths=PackedStringArray("focused_viewport")]
+[node name="PauseMenuController" type="Node" parent="CanvasLayer" unique_id=909361640]
 script = ExtResource("1_bqcs8")
 pause_menu_packed = ExtResource("2_onvsj")
-focused_viewport = NodePath("")
 
 [node name="Timer" type="Panel" parent="CanvasLayer" unique_id=314883008]
-offset_right = 40.0
-offset_bottom = 25.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 29.0
+grow_horizontal = 0
 script = ExtResource("5_v20na")
 
 [node name="Minutes" type="Label" parent="CanvasLayer/Timer" unique_id=609960847]
 layout_mode = 0
-offset_right = 23.0
+offset_left = 4.0
+offset_right = 28.0
 offset_bottom = 25.0
 text = "00:"
 horizontal_alignment = 2
 
 [node name="Seconds" type="Label" parent="CanvasLayer/Timer" unique_id=1634772193]
 layout_mode = 0
-offset_left = 22.0
-offset_right = 41.0
+offset_left = 28.0
+offset_right = 47.0
 offset_bottom = 25.0
 text = "00"
-horizontal_alignment = 2
 
 [node name="Thing" parent="." unique_id=865879477 instance=ExtResource("4_dnslt")]
 position = Vector2(523, 247)
