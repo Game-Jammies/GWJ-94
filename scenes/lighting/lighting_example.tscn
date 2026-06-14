@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dj5v7sav6jngw"]
+
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="1_mp3jm"]
+[ext_resource type="Texture2D" uid="uid://doe7raoforio1" path="res://assets/artwork/among test.png" id="2_flgc4"]
+[ext_resource type="Script" uid="uid://c0lfswbnjs8ec" path="res://scenes/lighting/highlight.gd" id="3_t1lqj"]
+[ext_resource type="Texture2D" uid="uid://blnvgipcj4kkv" path="res://assets/functional/2d_lights_and_shadows_neutral_point_light.webp" id="4_y7x6v"]
+[ext_resource type="Script" uid="uid://dycm0pvtiadnv" path="res://scenes/lighting/light_follows.gd" id="5_1ts6d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mp3jm"]
+shader = ExtResource("1_mp3jm")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flgc4"]
+shader = ExtResource("1_mp3jm")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1lqj"]
+shader = ExtResource("1_mp3jm")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
+
+[node name="lighting_example" type="Node2D" unique_id=1066491902]
+
+[node name="AmongTest" type="Sprite2D" parent="." unique_id=458635220]
+material = SubResource("ShaderMaterial_mp3jm")
+position = Vector2(792, 437)
+scale = Vector2(0.1939999, 0.26399994)
+texture = ExtResource("2_flgc4")
+script = ExtResource("3_t1lqj")
+
+[node name="AmongTest2" type="Sprite2D" parent="." unique_id=2103434946]
+material = SubResource("ShaderMaterial_flgc4")
+position = Vector2(370.99997, 627.5)
+scale = Vector2(0.064000025, 0.10266658)
+texture = ExtResource("2_flgc4")
+script = ExtResource("3_t1lqj")
+
+[node name="AmongTest3" type="Sprite2D" parent="." unique_id=2140329483]
+material = SubResource("ShaderMaterial_t1lqj")
+position = Vector2(1532.591, 627.932)
+scale = Vector2(0.41681793, 0.28818133)
+texture = ExtResource("2_flgc4")
+script = ExtResource("3_t1lqj")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1524404513]
+position = Vector2(792, 411)
+texture = ExtResource("4_y7x6v")
+script = ExtResource("5_1ts6d")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=702814052]
+position = Vector2(792, 411)
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
