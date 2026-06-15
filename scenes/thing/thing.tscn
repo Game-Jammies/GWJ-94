@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://pwoke6irxmf6"]
 
 [ext_resource type="Script" uid="uid://3hax8ol3iagc" path="res://scenes/thing/thing.gd" id="1_k4x1r"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="2_dbwrl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwhnr"]
+shader = ExtResource("2_dbwrl")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
 
 [node name="Thing" type="Node2D" unique_id=865879477]
 script = ExtResource("1_k4x1r")
@@ -10,5 +17,9 @@ unique_name_in_owner = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,5 +1,5 @@
 """
-This script highlights the sprite2d with the outline.tres shader when hovered over the mouse
+This script highlights the sprite2d with the outline.tres shader when hovered over the mouse, depreciated
 """
 
 extends Sprite2D	

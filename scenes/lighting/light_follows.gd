@@ -1,5 +1,5 @@
 """
-The PointLight2D follows the mouse position
+The PointLight2D follows the mouse position, depreciated
 """
 
 extends PointLight2D
