@@ -3,8 +3,9 @@
 [ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="1_mp3jm"]
 [ext_resource type="Texture2D" uid="uid://doe7raoforio1" path="res://assets/artwork/among test.png" id="2_flgc4"]
 [ext_resource type="Script" uid="uid://c0lfswbnjs8ec" path="res://scenes/lighting/highlight.gd" id="3_t1lqj"]
-[ext_resource type="Texture2D" uid="uid://blnvgipcj4kkv" path="res://assets/functional/2d_lights_and_shadows_neutral_point_light.webp" id="4_y7x6v"]
+[ext_resource type="Texture2D" uid="uid://dtkn4k5kuri1n" path="res://assets/functional/light-texture.png" id="4_mp3jm"]
 [ext_resource type="Script" uid="uid://dycm0pvtiadnv" path="res://scenes/lighting/light_follows.gd" id="5_1ts6d"]
+[ext_resource type="Texture2D" uid="uid://dpk6byt0g1kt3" path="res://assets/artwork/test-bg.png" id="6_flgc4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mp3jm"]
 shader = ExtResource("1_mp3jm")
@@ -25,6 +26,11 @@ shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
 [node name="lighting_example" type="Node2D" unique_id=1066491902]
+
+[node name="ExampleBackground" type="Sprite2D" parent="." unique_id=1537762301]
+position = Vector2(577.9927, 322.875)
+scale = Vector2(0.6063484, 0.60634845)
+texture = ExtResource("6_flgc4")
 
 [node name="AmongTest" type="Sprite2D" parent="." unique_id=458635220]
 material = SubResource("ShaderMaterial_mp3jm")
@@ -49,9 +55,11 @@ script = ExtResource("3_t1lqj")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1524404513]
 position = Vector2(792, 411)
-texture = ExtResource("4_y7x6v")
+texture = ExtResource("4_mp3jm")
+texture_scale = 1.5
+height = 200.0
 script = ExtResource("5_1ts6d")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=702814052]
 position = Vector2(792, 411)
-color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+color = Color(0, 0, 0, 1)
