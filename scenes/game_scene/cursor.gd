@@ -12,14 +12,15 @@ extends Node2D
 
 #mouse is pushed down
 var mouse_down : bool = false
+var cursor_pos : Vector2
+
+#signals
+signal thing_select(pos: Vector2)
 	
-func _process(delta: float) -> void:
-	var mouse_pos = get_global_mouse_position()
-	
+func _process(delta: float) -> void:	
 	#update positions
-	if not mouse_down:
-		light.global_position = mouse_pos
-		progress.global_position = Vector2(mouse_pos.x - progress.size.x/2, mouse_pos.y - progress.size.y/2)
+	light.global_position = cursor_pos
+	progress.global_position = Vector2(cursor_pos.x - progress.size.x/2, cursor_pos.y - progress.size.y/2)
 
 	if mouse_down:
 		progress.value += (progress.max_value / fill_time) * delta
@@ -33,8 +34,12 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		mouse_down = event.pressed
+		if mouse_down:
+			progress.show()
+			cursor_pos = get_global_mouse_position()
 
 func _thing_selected() -> void:
 	"""Trigger for when something has been selected"""
-	# progress.hide() #add show code in the input section
-	pass
+	progress.hide()
+	#thing_select.emit(cursor_pos) #emit the selection
+	get_tree().call_group("things", "_on_cursor_thing_select", cursor_pos)

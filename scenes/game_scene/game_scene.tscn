@@ -47,7 +47,3 @@ text = "00"
 position = Vector2(604, 247)
 
 [node name="among_thing" parent="." unique_id=1990109756 instance=ExtResource("6_j8flk")]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1730838400]
-position = Vector2(792, 411)
-color = Color(0.11764706, 0.11764706, 0.11764706, 1)
