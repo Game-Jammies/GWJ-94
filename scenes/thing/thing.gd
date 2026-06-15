@@ -53,6 +53,7 @@ func _on_click_released() -> void:
 
 
 func _on_cursor_thing_select(pos: Vector2) -> void:
+	"""TODO: figure out a less expensive way to tell if a vector2 is in an area2d"""
 	var query := PhysicsPointQueryParameters2D.new()
 	
 	query.position = pos

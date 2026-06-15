@@ -13,6 +13,7 @@ extends Node2D
 #mouse is pushed down
 var mouse_down : bool = false
 var cursor_pos : Vector2
+var finished : bool = false
 
 #signals
 signal thing_select(pos: Vector2)
@@ -24,10 +25,10 @@ func _process(delta: float) -> void:
 
 	if mouse_down:
 		progress.value += (progress.max_value / fill_time) * delta
-		if progress.value >= progress.max_value:
+		if progress.value >= progress.max_value and not finished:
 			progress.value = progress.max_value
 			_thing_selected()
-			
+			finished = true
 	else:
 		progress.value = 0
 
@@ -36,6 +37,7 @@ func _input(event: InputEvent) -> void:
 		mouse_down = event.pressed
 		if mouse_down:
 			progress.show()
+			finished = false
 			cursor_pos = get_global_mouse_position()
 
 func _thing_selected() -> void:
