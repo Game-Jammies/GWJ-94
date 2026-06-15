@@ -8,7 +8,7 @@ extends Node2D
 @onready var progress: TextureProgressBar = %TextureProgressBar
 
 #how much time to completely fill, increase per second
-@export var fill_time: float = 3.0
+@export var fill_time: float = 2.0
 
 #mouse is pushed down
 var mouse_down : bool = false
