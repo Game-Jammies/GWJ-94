@@ -21,17 +21,17 @@ var mouse_down: bool = false # If the mouse is held down
 
 func _ready() -> void:
 	add_to_group("things")
-	normal_config()
+	make_normal()
 
 ## The normal configurations of a thing
-func normal_config() -> void:
+func make_normal() -> void:
 	set_global_position(norm_pos)
 	set_rotation_degrees(norm_rot)
 	set_scale(norm_scale)
 	pass
 
 ## The configurations of a thing in its anomoly form
-func anomaly_config() -> void:
+func make_anomaly() -> void:
 	set_global_position(anom_pos)
 	set_rotation_degrees(anom_rot)
 	set_scale(anom_scale)
