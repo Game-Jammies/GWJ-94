@@ -20,7 +20,10 @@ signal thing_select(pos: Vector2)
 	
 func _process(delta: float) -> void:	
 	#update positions
-	light.global_position = cursor_pos
+	if not mouse_down:
+		light.global_position = get_global_mouse_position()
+	else:
+		light.global_position = cursor_pos
 	progress.global_position = Vector2(cursor_pos.x - progress.size.x/2, cursor_pos.y - progress.size.y/2)
 
 	if mouse_down:
