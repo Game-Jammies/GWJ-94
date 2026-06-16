@@ -1,12 +1,12 @@
 class_name GameTimer extends Panel
 
-var time: float = 0.0
+var time: float = 120.0
 var minutes: int = 0
 var seconds: int = 0
 var msec: float = 0
 
 func _process(delta) -> void:
-	time += delta
+	time -= delta
 	msec = fmod(time, 1) * 1000.0
 	seconds = int(time) % 60
 	minutes = int(time / 60) % 60
