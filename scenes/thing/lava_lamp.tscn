@@ -8,7 +8,7 @@
 shader = ExtResource("2_1bl24")
 shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
-shader_parameter/Width = 10.0
+shader_parameter/Width = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q35i"]
 size = Vector2(36, 74)

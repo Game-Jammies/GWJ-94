@@ -2,7 +2,7 @@
 This script handles items following and related to the cursor
 """
 
-extends Node2D
+class_name Cursor extends Node2D
 
 @onready var light: PointLight2D = %PointLight2D
 @onready var progress: TextureProgressBar = %TextureProgressBar
