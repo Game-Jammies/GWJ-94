@@ -5,7 +5,7 @@ class_name Thing extends Node2D
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var area: Area2D = %Area2D
 
-var is_misplaced: bool
+var is_anomoly: bool
 var mouse_over: bool = false #whether the mouse is currently hovering
 var mouse_down: bool = false #if the mouse is held down
 

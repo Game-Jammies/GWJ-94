@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6b3xnlcxkpx" path="res://scenes/game_scene/cursor.tscn" id="5_ducuf"]
 [ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/timer/timer.gd" id="5_v20na"]
 [ext_resource type="PackedScene" uid="uid://qf14ilriwjgl" path="res://scenes/thing/among_thing.tscn" id="6_j8flk"]
+[ext_resource type="Texture2D" uid="uid://df4y3rucp1f24" path="res://assets/artwork/Godot Jam 94/TowerBase.png" id="8_201br"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -18,6 +19,7 @@ script = ExtResource("1_bqcs8")
 pause_menu_packed = ExtResource("2_onvsj")
 
 [node name="Timer" type="Panel" parent="CanvasLayer" unique_id=314883008]
+unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -50,3 +52,8 @@ unique_name_in_owner = true
 position = Vector2(604, 247)
 
 [node name="among_thing" parent="." unique_id=1990109756 instance=ExtResource("6_j8flk")]
+
+[node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
+z_index = -10
+position = Vector2(960, 540)
+texture = ExtResource("8_201br")

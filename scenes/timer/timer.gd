@@ -1,4 +1,4 @@
-extends Panel
+class_name GameTimer extends Panel
 
 var time: float = 0.0
 var minutes: int = 0
