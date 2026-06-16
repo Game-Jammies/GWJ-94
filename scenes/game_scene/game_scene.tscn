@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/timer/timer.gd" id="5_v20na"]
 [ext_resource type="PackedScene" uid="uid://qf14ilriwjgl" path="res://scenes/thing/among_thing.tscn" id="6_j8flk"]
 [ext_resource type="Texture2D" uid="uid://df4y3rucp1f24" path="res://assets/artwork/Godot Jam 94/TowerBase.png" id="8_201br"]
+[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_j6s53"]
+[ext_resource type="PackedScene" uid="uid://bdivfpkq4agvf" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
+[ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -49,7 +52,10 @@ text = "00"
 unique_name_in_owner = true
 
 [node name="Thing" parent="." unique_id=865879477 instance=ExtResource("4_dnslt")]
-position = Vector2(604, 247)
+position = Vector2(1059, 625)
+norm_pos = Vector2(1059, 625)
+anom_pos = Vector2(236, 806)
+anom_scale = Vector2(2, 2)
 
 [node name="among_thing" parent="." unique_id=1990109756 instance=ExtResource("6_j8flk")]
 
@@ -57,3 +63,28 @@ position = Vector2(604, 247)
 z_index = -10
 position = Vector2(960, 540)
 texture = ExtResource("8_201br")
+
+[node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
+unique_name_in_owner = true
+script = ExtResource("9_j6s53")
+main_menu_scene_path = "uid://c47ojtcb4w8bg"
+ending_scene_path = "uid://u38s4ba85ne2"
+game_won_scene = ExtResource("10_hqmgi")
+game_lost_scene = ExtResource("11_3di6p")
+
+[node name="WinButton" type="Button" parent="." unique_id=915007780]
+offset_left = 264.0
+offset_top = 547.0
+offset_right = 496.0
+offset_bottom = 606.0
+text = "Win"
+
+[node name="LoseButton" type="Button" parent="." unique_id=113791583]
+offset_left = 532.0
+offset_top = 555.0
+offset_right = 711.0
+offset_bottom = 611.0
+text = "Lose"
+
+[connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]

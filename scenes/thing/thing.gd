@@ -5,12 +5,37 @@ class_name Thing extends Node2D
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var area: Area2D = %Area2D
 
-var is_anomoly: bool
-var mouse_over: bool = false #whether the mouse is currently hovering
-var mouse_down: bool = false #if the mouse is held down
+var is_anomaly: bool = false
+var mouse_over: bool = false # Whether the mouse is currently hovering
+var mouse_down: bool = false # If the mouse is held down
+
+@export_group("Normal Configurations")
+@export var norm_pos: Vector2 = Vector2(0.0,0.0)
+@export var norm_rot: float = 0.0
+@export var norm_scale: Vector2 = Vector2(1.0,1.0)
+
+@export_group("Anomaly Configurations")
+@export var anom_pos: Vector2 = Vector2(0.0,0.0)
+@export var anom_rot: float = 0.0
+@export var anom_scale: Vector2 = Vector2(1.0,1.0)
 
 func _ready() -> void:
 	add_to_group("things")
+	normal_config()
+
+## The normal configurations of a thing
+func normal_config() -> void:
+	set_global_position(norm_pos)
+	set_rotation_degrees(norm_rot)
+	set_scale(norm_scale)
+	pass
+
+## The configurations of a thing in its anomoly form
+func anomaly_config() -> void:
+	set_global_position(anom_pos)
+	set_rotation_degrees(anom_rot)
+	set_scale(anom_scale)
+	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	print("mouse entered")

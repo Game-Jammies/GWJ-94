@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bsnjkm768dtn4"]
+
+[ext_resource type="PackedScene" uid="uid://b2s0kvrx8r2kq" path="res://addons/maaacks_game_template/base/nodes/windows/window_container.tscn" id="1_4docj"]
+[ext_resource type="Script" uid="uid://xfugmpspqbcc" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.gd" id="2_ggljr"]
+
+[node name="OverlaidWindow" unique_id=1589953425 instance=ExtResource("1_4docj")]
+script = ExtResource("2_ggljr")
+pauses_game = true
+makes_mouse_visible = true
+exclusive = true
+exclusive_background_color = Color(0, 0, 0, 0.5)
+
+[node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(91647963) index="0" unique_id=1128241240]
+text = "You Lose!"
