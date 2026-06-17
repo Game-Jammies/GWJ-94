@@ -1,26 +1,28 @@
 class_name GameTimer extends Panel
 
-signal timer_at_0
+var time_total: float = 120.0
+var time_elapsed: float = 0
 
-var time: float = 5.0
-var minutes: int = 0
-var seconds: int = 0
-var msec: float = 0
+var ticking: bool = false
+
+func start() -> void: ticking = true
+func stop() -> void: ticking = false
+
 
 func _process(delta) -> void:
-	time -= delta
-	msec = fmod(time, 1) * 1000.0
-	seconds = int(time) % 60
-	minutes = int(time / 60) % 60
-	$Minutes.text = "%d:" % minutes
-	$Seconds.text = "%02d" % seconds
+	if ticking: time_elapsed += delta
 	
-	if time <= 0.0:
-		timer_at_0.emit()
-		stop()
+	var time_left = get_time_left()
+	var seconds_left = int(time_left) % 60
+	var minutes_left = int(time_left / 60) % 60
+	$Minutes.text = "%d:" % minutes_left
+	$Seconds.text = "%02d" % seconds_left
 
-func stop() -> void:
-	set_process(false)
+func get_time_left() -> float:
+	return time_total - time_elapsed
 
 func get_time_formatted() -> String:
+	var time_left = get_time_left()
+	var seconds = int(time_left) % 60
+	var minutes = int(time_left / 60) % 60
 	return "%d:%02d" % [minutes, seconds]
