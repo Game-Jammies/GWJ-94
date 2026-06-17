@@ -18,6 +18,7 @@ shader_parameter/Width = 10.0
 
 [node name="feather" type="Node2D" unique_id=865879477]
 script = ExtResource("1_budlp")
+norm_sprite = ExtResource("3_jx0rf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
 unique_name_in_owner = true

@@ -21,6 +21,7 @@ size = Vector2(163, 159)
 
 [node name="cactus" type="Node2D" unique_id=865879477]
 script = ExtResource("1_jc08x")
+norm_sprite = ExtResource("3_daonp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
 unique_name_in_owner = true

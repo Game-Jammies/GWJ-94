@@ -17,10 +17,11 @@ shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcck"]
-size = Vector2(327, 389)
+size = Vector2(90, 171)
 
 [node name="plant" type="Node2D" unique_id=865879477]
 script = ExtResource("1_cmobr")
+norm_sprite = ExtResource("3_tuhcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
 unique_name_in_owner = true
@@ -32,8 +33,9 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
-position = Vector2(0.5, -9.5)
+position = Vector2(-12, -84.5)
 shape = SubResource("RectangleShape2D_slcck")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

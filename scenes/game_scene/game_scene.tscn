@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
 [ext_resource type="PackedScene" uid="uid://mmbis6wfk0mv" path="res://scenes/thing/stain_glass_L.tscn" id="14_iprv4"]
 [ext_resource type="PackedScene" uid="uid://bnui2ilab8max" path="res://scenes/thing/stain_glass_R.tscn" id="15_1ypwy"]
+[ext_resource type="PackedScene" uid="uid://c2cqlq0rkie8c" path="res://scenes/thing/plant.tscn" id="15_hunbn"]
+[ext_resource type="PackedScene" uid="uid://i7rjioco0cnf" path="res://scenes/thing/cactus.tscn" id="16_hunbn"]
+[ext_resource type="PackedScene" uid="uid://cali3swfkgq7g" path="res://scenes/thing/feather.tscn" id="17_7aaem"]
+[ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -89,3 +93,20 @@ norm_pos = Vector2(1272, 366)
 z_index = -11
 position = Vector2(1678, 417)
 norm_pos = Vector2(1681, 414)
+
+[node name="plant" parent="." unique_id=865879477 instance=ExtResource("15_hunbn")]
+position = Vector2(1519, 323)
+norm_pos = Vector2(1519, 323)
+
+[node name="cactus" parent="." unique_id=773853580 instance=ExtResource("16_hunbn")]
+z_index = -1
+position = Vector2(1381, 189)
+norm_pos = Vector2(1381, 189)
+
+[node name="feather" parent="." unique_id=196654755 instance=ExtResource("17_7aaem")]
+position = Vector2(1097, 534)
+norm_pos = Vector2(1096, 533)
+
+[node name="books" parent="." unique_id=2140462739 instance=ExtResource("18_bwcss")]
+position = Vector2(640, 727)
+norm_pos = Vector2(640, 727)
