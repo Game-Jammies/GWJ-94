@@ -15,23 +15,25 @@ const LAVA_LAMP_SCENE: PackedScene = preload("uid://w7sjbxb1g1bd")
 #endregion
 
 func _ready() -> void:
+	timer.timer_at_0.connect(lose_game)
+	thing.make_anomaly()
+	current_anomolies_count += 1
 	pass
 
 
 func _process(delta: float) -> void:
-	if timer.seconds > 5.0:
-		thing.make_anomaly()
-	pass
+	
+	if current_anomolies_count <= 0:
+		win_game()
 
 
-func _on_win_button_pressed() -> void:
+
+func win_game() -> void:
 	win_lose_manager.game_won()
-	pass # Replace with function body.
 
 
-func _on_lose_button_pressed() -> void:
+func lose_game() -> void: 
 	win_lose_manager.game_lost()
-	pass # Replace with function body.
 
 
 # Keep a list of all things

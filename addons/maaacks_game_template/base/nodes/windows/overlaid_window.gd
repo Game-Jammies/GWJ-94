@@ -2,6 +2,9 @@
 class_name OverlaidWindow
 extends WindowContainer
 
+signal play_again
+signal exit_to_main_menu
+
 @export var pauses_game : bool = false :
 	set(value):
 		pauses_game = value
@@ -75,3 +78,13 @@ func _enter_tree() -> void:
 	if not visibility_changed.is_connected(_on_visibility_changed):
 		visibility_changed.connect(_on_visibility_changed)
 	_on_visibility_changed()
+
+
+func _on_play_again_button_pressed() -> void:
+	close()
+	pass # Replace with function body.
+
+
+func _on_main_menu_button_pressed() -> void:
+	close()
+	pass # Replace with function body.

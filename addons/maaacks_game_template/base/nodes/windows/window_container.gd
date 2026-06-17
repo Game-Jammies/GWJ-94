@@ -15,12 +15,6 @@ signal opened
 		if update_content and is_inside_tree():
 			description_label.text = text
 
-@export var close_button_text : String = "Close" :
-	set(value):
-		close_button_text = value
-		if update_content and is_inside_tree():
-			close_button.text = close_button_text
-
 @export_subgroup("Title")
 @export var title : String = "Menu" :
 	set(value):
@@ -44,13 +38,11 @@ signal opened
 @onready var title_label : Label = %TitleLabel
 @onready var title_margin : MarginContainer = %TitleMargin
 @onready var description_label : RichTextLabel = %DescriptionLabel
-@onready var close_button : Button = %CloseButton
 @onready var menu_buttons : BoxContainer = %MenuButtons
 
 func _ready() -> void:
 	update_content = update_content
 	text = text
-	close_button_text = close_button_text
 	title = title
 	title_font_size = title_font_size
 	title_visible = title_visible
@@ -68,8 +60,6 @@ func _unhandled_input(event : InputEvent) -> void:
 		_handle_cancel_input()
 		get_viewport().set_input_as_handled()
 
-func _on_close_button_pressed() -> void:
-	close()
 
 func show() -> void:
 	super.show()
