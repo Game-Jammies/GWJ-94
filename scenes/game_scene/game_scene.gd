@@ -72,6 +72,7 @@ func do_event(event: Event):
 
 func win_game() -> void:
 	win_lose_manager.game_won()
+	timer.stop()
 
 
 func lose_game() -> void: 
