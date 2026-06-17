@@ -5,7 +5,7 @@ class_name GameScene extends Node2D
 @onready var win_lose_manager = %WinLoseManager
 
 # TODO: DELETE LATER WHEN DONE TESTING
-@onready var thing = %Thing
+@onready var thing: Thing = $plant_lava_lamp
 
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float

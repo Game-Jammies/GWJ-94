@@ -10,9 +10,6 @@ shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
 shader_parameter/Width = 3.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q35i"]
-size = Vector2(36, 74)
-
 [node name="Thing" unique_id=865879477 instance=ExtResource("1_3365r")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=897235112]
@@ -22,6 +19,6 @@ hframes = 2
 region_enabled = true
 region_rect = Rect2(133.59999, 0, 256.8, 260)
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1599315777]
-position = Vector2(-1, 4)
-shape = SubResource("RectangleShape2D_4q35i")
+[node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
+position = Vector2(-27, 1)
+polygon = PackedVector2Array(20, -9, 14, -31, 31, -31, 39, 1, 33, 22, 43, 29, 29, 38, 14, 42, 12, 33, 24, 15, 12, 10, 12, -8)

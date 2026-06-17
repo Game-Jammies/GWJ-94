@@ -63,8 +63,7 @@ text = "00"
 [node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
 
-[node name="Thing" parent="." unique_id=865879477 instance=ExtResource("4_dnslt")]
-unique_name_in_owner = true
+[node name="plant_lava_lamp" parent="." unique_id=865879477 instance=ExtResource("4_dnslt")]
 position = Vector2(1059, 625)
 norm_pos = Vector2(1059, 625)
 anom_pos = Vector2(236, 806)

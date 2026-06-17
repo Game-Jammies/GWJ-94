@@ -17,7 +17,7 @@ shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdd57"]
-size = Vector2(179, 98)
+size = Vector2(167, 92)
 
 [node name="Potions" type="Node2D" unique_id=865879477]
 script = ExtResource("1_ctikn")
@@ -32,7 +32,7 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
-position = Vector2(-1.5, -2)
+position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_cdd57")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

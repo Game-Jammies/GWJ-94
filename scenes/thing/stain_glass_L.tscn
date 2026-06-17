@@ -16,9 +16,6 @@ shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k0mp2"]
-points = PackedVector2Array(112.512054, 182.4509, 124.35318, -63.225357, 31.707321, -194.30455, -85.64405, -110.40781, -133.74701, 145.12132)
-
 [node name="stain_glass_L" type="Node2D" unique_id=865879477]
 script = ExtResource("1_bld1r")
 
@@ -29,13 +26,13 @@ texture = ExtResource("2_ujkno")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=676303121]
 position = Vector2(-16.484982, 6.8585043)
-rotation = -0.17453295
 scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("ConvexPolygonShape2D_k0mp2")
+polygon = PackedVector2Array(-88.51503, 163.14151, -110.51503, 31.141499, -107.51503, -17.858505, -92.51503, -96.85851, -55.515022, -147.85852, -1.5150185, -188.85852, 30.917236, -168.4844, 73.48499, -119.85852, 112.485, -32.85851, 139.485, 106.14151, 135.485, 162.14151)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

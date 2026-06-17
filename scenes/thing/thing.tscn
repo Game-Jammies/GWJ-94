@@ -17,9 +17,11 @@ unique_name_in_owner = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1865597580]
+polygon = PackedVector2Array(-32, 30, 34, 33, 27, -32, -41, -36)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
