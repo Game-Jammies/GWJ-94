@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c7brxoshiq7ok"]
+
+[ext_resource type="AudioStream" uid="uid://b8w54138pl4g6" path="res://assets/Music/cyberwave-orchestra-puzzle-game-bright-casual-video-game-music-249202.mp3" id="1_jim7f"]
+
+[sub_resource type="GDScript" id="GDScript_0wpo5"]
+script/source = "extends Node2D
+"
+
+[node name="AudioManager" type="Node2D" unique_id=1831585001]
+script = SubResource("GDScript_0wpo5")
+
+[node name="bg_music1" type="AudioStreamPlayer" parent="." unique_id=1871920029]
+stream = ExtResource("1_jim7f")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1614270]

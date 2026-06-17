@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_j6s53"]
 [ext_resource type="PackedScene" uid="uid://bdivfpkq4agvf" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
 [ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
+[ext_resource type="PackedScene" uid="uid://c7brxoshiq7ok" path="res://scenes/audio_manager/audio_manager.tscn" id="12_3di6p"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -23,6 +24,7 @@ pause_menu_packed = ExtResource("2_onvsj")
 
 [node name="Timer" type="Panel" parent="CanvasLayer" unique_id=314883008]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -34,18 +36,22 @@ grow_horizontal = 0
 script = ExtResource("5_v20na")
 
 [node name="Minutes" type="Label" parent="CanvasLayer/Timer" unique_id=609960847]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 4.0
-offset_right = 28.0
-offset_bottom = 25.0
+offset_left = 1.0
+offset_right = 74.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 35
 text = "00:"
 horizontal_alignment = 2
 
 [node name="Seconds" type="Label" parent="CanvasLayer/Timer" unique_id=1634772193]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 28.0
-offset_right = 47.0
-offset_bottom = 25.0
+offset_left = 74.0
+offset_right = 149.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 35
 text = "00"
 
 [node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
@@ -86,6 +92,8 @@ offset_top = 555.0
 offset_right = 711.0
 offset_bottom = 611.0
 text = "Lose"
+
+[node name="AudioManager" parent="." unique_id=1831585001 instance=ExtResource("12_3di6p")]
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
