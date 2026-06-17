@@ -15,31 +15,36 @@ var mouse_down: bool = false # If the mouse is held down
 @export var norm_pos: Vector2 = Vector2(0.0,0.0)
 @export var norm_rot: float = 0.0
 @export var norm_scale: Vector2 = Vector2(1.0,1.0)
+@export var norm_sprite: Texture2D
 
 @export_group("Anomaly Configurations")
 @export var anom_pos: Vector2 = Vector2(0.0,0.0)
 @export var anom_rot: float = 0.0
 @export var anom_scale: Vector2 = Vector2(1.0,1.0)
+@export var anom_sprite: Texture2D
 
 func _ready() -> void:
 	add_to_group("things")
+	sprite.set_texture(norm_sprite)
 	make_normal()
 
 ## The normal configurations of a thing
 func make_normal() -> void:
+	if anom_sprite:
+		sprite.set_texture(norm_sprite)
 	set_global_position(norm_pos)
 	set_rotation_degrees(norm_rot)
 	set_scale(norm_scale)
 	is_anomaly = false
-	pass
 
 ## The configurations of a thing in its anomoly form
 func make_anomaly() -> void:
+	if anom_sprite:
+		sprite.set_texture(anom_sprite)
 	set_global_position(anom_pos)
 	set_rotation_degrees(anom_rot)
 	set_scale(anom_scale)
 	is_anomaly = true
-	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	print("mouse entered")
