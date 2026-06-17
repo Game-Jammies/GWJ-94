@@ -11,9 +11,15 @@
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_j6s53"]
 [ext_resource type="PackedScene" uid="uid://bdivfpkq4agvf" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
 [ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
+[ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
+TOTAL_ANOMALY_COUNT = 4
+DARKEN_START_TIME = 4.0
+MUTATE_START_TIME = 10.0
+MUTATE_END_TIME = 30.0
+TOTAL_TIME = 120.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108104848]
 
@@ -23,6 +29,7 @@ pause_menu_packed = ExtResource("2_onvsj")
 
 [node name="Timer" type="Panel" parent="CanvasLayer" unique_id=314883008]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -47,6 +54,8 @@ offset_left = 28.0
 offset_right = 47.0
 offset_bottom = 25.0
 text = "00"
+
+[node name="Map" parent="CanvasLayer" unique_id=2027347819 instance=ExtResource("12_3di6p")]
 
 [node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
@@ -86,6 +95,9 @@ offset_top = 555.0
 offset_right = 711.0
 offset_bottom = 611.0
 text = "Lose"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=321201575]
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
