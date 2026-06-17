@@ -40,11 +40,13 @@ func make_anomaly() -> void:
 func _on_area_2d_mouse_entered() -> void:
 	print("mouse entered")
 	mouse_over = true
-	sprite.material.set_shader_parameter("is_hovered", true)
+	if sprite.material.shader != null:
+		sprite.material.set_shader_parameter("is_hovered", true)
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_over = false
-	sprite.material.set_shader_parameter("is_hovered", false)
+	if sprite.material.shader != null:
+		sprite.material.set_shader_parameter("is_hovered", false)
 	
 func _process(_delta: float) -> void:
 	if mouse_down:
