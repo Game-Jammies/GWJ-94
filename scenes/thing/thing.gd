@@ -10,7 +10,7 @@ var mouse_over: bool = false # Whether the mouse is currently hovering
 var mouse_down: bool = false # If the mouse is held down
 
 @export_group("Normal Configurations")
-@export var norm_pos: Vector2 = Vector2(0.0,0.0)
+@export var norm_pos: Vector2 = Vector2(position.x, position.y)
 @export var norm_rot: float = 0.0
 @export var norm_scale: Vector2 = Vector2(1.0,1.0)
 

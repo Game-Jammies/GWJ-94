@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://mmbis6wfk0mv"]
+
+[ext_resource type="Script" uid="uid://3hax8ol3iagc" path="res://scenes/thing/thing.gd" id="1_bld1r"]
+[ext_resource type="Texture2D" uid="uid://brxrg7y148wy8" path="res://assets/artwork/stain_glass_L.png" id="2_ujkno"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="2_volot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_volot"]
+shader = ExtResource("2_volot")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwhnr"]
+shader = ExtResource("2_volot")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k0mp2"]
+points = PackedVector2Array(112.512054, 182.4509, 124.35318, -63.225357, 31.707321, -194.30455, -85.64405, -110.40781, -133.74701, 145.12132)
+
+[node name="stain_glass_L" type="Node2D" unique_id=865879477]
+script = ExtResource("1_bld1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_volot")
+texture = ExtResource("2_ujkno")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=484373159]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kwhnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
+position = Vector2(-16.484982, 6.8585043)
+rotation = -0.17453295
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("ConvexPolygonShape2D_k0mp2")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

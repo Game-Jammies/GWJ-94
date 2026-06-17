@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bn6b3xnlcxkpx" path="res://scenes/game_scene/cursor.tscn" id="5_ducuf"]
 [ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/timer/timer.gd" id="5_v20na"]
 [ext_resource type="PackedScene" uid="uid://qf14ilriwjgl" path="res://scenes/thing/among_thing.tscn" id="6_j8flk"]
-[ext_resource type="Texture2D" uid="uid://df4y3rucp1f24" path="res://assets/artwork/Godot Jam 94/TowerBase.png" id="8_201br"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_j6s53"]
 [ext_resource type="PackedScene" uid="uid://b2dutgkvja0sq" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
 [ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
 [ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
+[ext_resource type="Texture2D" uid="uid://cadty06k0cuxq" path="res://assets/artwork/Godot Jam 94/TowerBase2.png" id="13_1ypwy"]
+[ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
+[ext_resource type="PackedScene" uid="uid://mmbis6wfk0mv" path="res://scenes/thing/stain_glass_L.tscn" id="14_iprv4"]
+[ext_resource type="PackedScene" uid="uid://bnui2ilab8max" path="res://scenes/thing/stain_glass_R.tscn" id="15_1ypwy"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -69,10 +72,9 @@ anom_scale = Vector2(2, 2)
 
 [node name="among_thing" parent="." unique_id=1990109756 instance=ExtResource("6_j8flk")]
 
-[node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
-z_index = -10
-position = Vector2(960, 540)
-texture = ExtResource("8_201br")
+[node name="Potions" parent="." unique_id=1208629607 instance=ExtResource("13_jytbd")]
+position = Vector2(689, 407)
+norm_pos = Vector2(689, 407)
 
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
 unique_name_in_owner = true
@@ -81,3 +83,18 @@ main_menu_scene_path = "uid://c47ojtcb4w8bg"
 ending_scene_path = "uid://u38s4ba85ne2"
 game_won_scene = ExtResource("10_hqmgi")
 game_lost_scene = ExtResource("11_3di6p")
+
+[node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
+z_index = -10
+position = Vector2(960, 540)
+texture = ExtResource("13_1ypwy")
+
+[node name="stain_glass_L" parent="." unique_id=327117180 instance=ExtResource("14_iprv4")]
+z_index = -11
+position = Vector2(1272, 366)
+norm_pos = Vector2(1272, 366)
+
+[node name="stain_glass_R" parent="." unique_id=720551442 instance=ExtResource("15_1ypwy")]
+z_index = -11
+position = Vector2(1678, 417)
+norm_pos = Vector2(1681, 414)
