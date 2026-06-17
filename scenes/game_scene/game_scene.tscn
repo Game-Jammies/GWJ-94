@@ -14,6 +14,11 @@
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
+TOTAL_ANOMALY_COUNT = 4
+DARKEN_START_TIME = 4.0
+MUTATE_START_TIME = 10.0
+MUTATE_END_TIME = 30.0
+TOTAL_TIME = 120.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108104848]
 
