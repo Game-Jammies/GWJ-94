@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3hax8ol3iagc" path="res://scenes/thing/thing.gd" id="1_bld1r"]
 [ext_resource type="Texture2D" uid="uid://brxrg7y148wy8" path="res://assets/artwork/stain_glass_L.png" id="2_ujkno"]
 [ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="2_volot"]
+[ext_resource type="Texture2D" uid="uid://duh1qxphx8syk" path="res://assets/artwork/stain_glass_L_anomaly.png" id="3_ujkno"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_volot"]
 shader = ExtResource("2_volot")
@@ -18,6 +19,8 @@ shader_parameter/Width = 10.0
 
 [node name="stain_glass_L" type="Node2D" unique_id=865879477]
 script = ExtResource("1_bld1r")
+norm_sprite = ExtResource("2_ujkno")
+anom_sprite = ExtResource("3_ujkno")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
 unique_name_in_owner = true
