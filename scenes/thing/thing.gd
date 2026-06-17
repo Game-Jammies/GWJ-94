@@ -1,6 +1,8 @@
 class_name Thing extends Node2D
 
 # Clickable objects
+signal anomaly_found(name: String)
+signal incorrect_guess
 
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var area: Area2D = %Area2D
@@ -28,6 +30,7 @@ func make_normal() -> void:
 	set_global_position(norm_pos)
 	set_rotation_degrees(norm_rot)
 	set_scale(norm_scale)
+	is_anomaly = false
 	pass
 
 ## The configurations of a thing in its anomoly form
@@ -35,6 +38,7 @@ func make_anomaly() -> void:
 	set_global_position(anom_pos)
 	set_rotation_degrees(anom_rot)
 	set_scale(anom_scale)
+	is_anomaly = true
 	pass
 
 func _on_area_2d_mouse_entered() -> void:
@@ -100,4 +104,13 @@ func _on_cursor_thing_select(pos: Vector2) -> void:
 func _thing_selected():
 	"""The thing has been selected"""
 	print("Selected " + self.name)
+	
+	# Check if thing is anomaly
+	if is_anomaly:
+		make_normal()
+		anomaly_found.emit(self.name)
+		pass
+	else:
+		incorrect_guess.emit()
+		pass
 	pass
