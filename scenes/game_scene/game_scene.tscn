@@ -24,6 +24,7 @@ pause_menu_packed = ExtResource("2_onvsj")
 
 [node name="Timer" type="Panel" parent="CanvasLayer" unique_id=314883008]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -48,6 +49,8 @@ offset_left = 28.0
 offset_right = 47.0
 offset_bottom = 25.0
 text = "00"
+
+[node name="Map" parent="CanvasLayer" unique_id=2027347819 instance=ExtResource("12_3di6p")]
 
 [node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
@@ -88,7 +91,8 @@ offset_right = 711.0
 offset_bottom = 611.0
 text = "Lose"
 
-[node name="Map" parent="." unique_id=2027347819 instance=ExtResource("12_3di6p")]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=321201575]
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
