@@ -24,7 +24,6 @@ const LAVA_LAMP_SCENE: PackedScene = preload("uid://w7sjbxb1g1bd")
 
 
 func _ready() -> void:
-	
 	# ----- Timer Setup ----- 
 	timer.time_total = TOTAL_TIME
 	timer.start()
@@ -66,16 +65,18 @@ func do_event(event: Event):
 			
 		Event.Type.TIME_UP:
 			print("%.2f - DOING TIME_UP EVENT" % event.date)
+			lose_game()
+	pass
 
 
-func _on_win_button_pressed() -> void:
+
+func win_game() -> void:
 	win_lose_manager.game_won()
-	pass # Replace with function body.
 
 
-func _on_lose_button_pressed() -> void:
+func lose_game() -> void: 
 	win_lose_manager.game_lost()
-	pass # Replace with function body.
+	timer.stop()
 
 
 # Keep a list of all things
