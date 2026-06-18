@@ -3,6 +3,10 @@ class_name GameScene extends Node2D
 @onready var cursor = %cursor
 @onready var timer = %Timer
 @onready var win_lose_manager = %WinLoseManager
+@onready var camera: Camera2D = %Camera2D
+
+const FLOOR_1_CAM_POS := Vector2(0.0,0.0)
+const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
 
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float
@@ -89,3 +93,17 @@ func lose_game() -> void:
 
 # Keep a list of all things
 # after some time, convert a thing to its anomoly variant
+
+## Button to go up to the second floor
+func _on_floor_1_stairs_button_pressed() -> void:
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera,"position",FLOOR_2_CAM_POS,1.0)
+
+
+func _on_floor_2_stairs_button_pressed() -> void:
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera,"position",FLOOR_1_CAM_POS,1.0)
