@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bjc3giwq7exva"]
+
+[ext_resource type="Texture2D" uid="uid://df4y3rucp1f24" path="res://assets/artwork/Godot Jam 94/TowerBase.png" id="1_tsnpq"]
+
+[node name="UpstairsRoom" type="Sprite2D" unique_id=850423136]
+texture = ExtResource("1_tsnpq")
+centered = false
