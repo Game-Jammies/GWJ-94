@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://i7rjioco0cnf" path="res://scenes/thing/cactus.tscn" id="16_hunbn"]
 [ext_resource type="PackedScene" uid="uid://cali3swfkgq7g" path="res://scenes/thing/feather.tscn" id="17_7aaem"]
 [ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
-[ext_resource type="Texture2D" uid="uid://b1tmcsxljhnoo" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -121,7 +120,6 @@ norm_pos = Vector2(689, 407)
 norm_sprite = ExtResource("8_iprv4")
 
 [node name="Feather" parent="ThingParent" unique_id=196654755 instance=ExtResource("17_7aaem")]
-position = Vector2(1097, 534)
-norm_pos = Vector2(1096, 533)
-anom_pos = Vector2(1096, 533)
-anom_sprite = ExtResource("21_v03ia")
+position = Vector2(960, 536)
+norm_pos = Vector2(960, 536)
+anom_pos = Vector2(960, 536)
