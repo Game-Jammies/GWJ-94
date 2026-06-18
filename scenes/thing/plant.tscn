@@ -19,7 +19,7 @@ shader_parameter/Width = 10.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slcck"]
 size = Vector2(90, 171)
 
-[node name="plant" type="Node2D" unique_id=865879477]
+[node name="VinePlant" type="Node2D" unique_id=865879477]
 script = ExtResource("1_cmobr")
 norm_sprite = ExtResource("3_tuhcf")
 
@@ -30,6 +30,7 @@ texture = ExtResource("3_tuhcf")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]

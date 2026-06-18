@@ -17,7 +17,7 @@ shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
-[node name="stain_glass_L" type="Node2D" unique_id=865879477]
+[node name="StainedGlassL" type="Node2D" unique_id=865879477]
 script = ExtResource("1_bld1r")
 norm_sprite = ExtResource("2_ujkno")
 anom_sprite = ExtResource("3_ujkno")

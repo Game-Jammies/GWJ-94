@@ -17,23 +17,25 @@ shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daonp"]
-size = Vector2(163, 159)
+size = Vector2(92, 156)
 
-[node name="cactus" type="Node2D" unique_id=865879477]
+[node name="Cactus" type="Node2D" unique_id=865879477]
 script = ExtResource("1_jc08x")
 norm_sprite = ExtResource("3_daonp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xu7oo")
+position = Vector2(-27, 1)
 texture = ExtResource("3_daonp")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
-position = Vector2(-5.5, -3.5)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_daonp")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -29,6 +29,7 @@ texture = ExtResource("2_ho110")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=484373159]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
