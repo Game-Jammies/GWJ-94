@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://i7rjioco0cnf" path="res://scenes/thing/cactus.tscn" id="16_hunbn"]
 [ext_resource type="PackedScene" uid="uid://cali3swfkgq7g" path="res://scenes/thing/feather.tscn" id="17_7aaem"]
 [ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
-[ext_resource type="Texture2D" uid="uid://c6v0evj7gbm1q" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
+[ext_resource type="Texture2D" uid="uid://b1tmcsxljhnoo" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -109,6 +109,7 @@ anom_pos = Vector2(1521, 322)
 anom_sprite = ExtResource("14_dv4yt")
 
 [node name="Cactus" parent="ThingParent" unique_id=1435210064 instance=ExtResource("16_hunbn")]
+z_index = -1
 position = Vector2(1409, 191)
 norm_pos = Vector2(1409, 191)
 anom_pos = Vector2(1409, 191)
