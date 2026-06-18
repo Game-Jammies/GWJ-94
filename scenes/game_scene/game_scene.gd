@@ -4,9 +4,6 @@ class_name GameScene extends Node2D
 @onready var timer = %Timer
 @onready var win_lose_manager = %WinLoseManager
 
-# TODO: DELETE LATER WHEN DONE TESTING
-@onready var thing = %Thing
-
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float
 @export var MUTATE_START_TIME: float
@@ -18,12 +15,18 @@ var event_list: Array[Event]
 var current_anomaly_count: int = 0
 var anomaly_list: Array[Thing] # List of the objects that are currently set as anomalies
 
-#region Things
-const LAVA_LAMP_SCENE: PackedScene = preload("uid://w7sjbxb1g1bd")
-#endregion
+var thing_list: Array[Thing] = []
+@onready var thing_parent: Node2D = %ThingParent
 
 
 func _ready() -> void:
+	# ----- Get All Things -----
+	for thing in thing_parent.get_children():
+		if thing.visible:
+			thing_list.append(thing)
+	thing_list.shuffle()
+	
+	
 	# ----- Timer Setup ----- 
 	timer.time_total = TOTAL_TIME
 	timer.start()
@@ -60,8 +63,12 @@ func do_event(event: Event):
 			
 		Event.Type.MUTATE:
 			print("%.2f - DOING MUTATE EVENT" % event.date)
-			thing.make_anomaly() # temporary
-			# TODO: get the next valid mutation in the random mutation list
+			var thing = thing_list.pop_back()
+			if thing:
+				thing.make_anomaly()
+				anomaly_list.append(thing)
+			else: 
+				printerr("Could not find a thing to mutate")
 			
 		Event.Type.TIME_UP:
 			print("%.2f - DOING TIME_UP EVENT" % event.date)
@@ -72,6 +79,7 @@ func do_event(event: Event):
 
 func win_game() -> void:
 	win_lose_manager.game_won()
+	timer.stop()
 
 
 func lose_game() -> void: 

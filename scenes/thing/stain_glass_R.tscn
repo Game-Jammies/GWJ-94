@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bnui2ilab8max"]
+
+[ext_resource type="Script" uid="uid://3hax8ol3iagc" path="res://scenes/thing/thing.gd" id="1_uhwuq"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="2_cedwf"]
+[ext_resource type="Texture2D" uid="uid://c7rgy47wgibk7" path="res://assets/artwork/stain_glass_R_anomaly.png" id="3_2t6gf"]
+[ext_resource type="Texture2D" uid="uid://dds4hy2exom2" path="res://assets/artwork/stain_glass_R.png" id="3_cedwf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2t6gf"]
+shader = ExtResource("2_cedwf")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwhnr"]
+shader = ExtResource("2_cedwf")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 10.0
+
+[node name="StainedGlassR" type="Node2D" unique_id=865879477]
+script = ExtResource("1_uhwuq")
+norm_sprite = ExtResource("3_cedwf")
+anom_sprite = ExtResource("3_2t6gf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=897235112]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2t6gf")
+texture = ExtResource("3_cedwf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=484373159]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+material = SubResource("ShaderMaterial_kwhnr")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1538949751]
+polygon = PackedVector2Array(-107, 156, 99, 188, 111, 111, 97, -16, 67, -86, 38, -138, -10, -186, -34, -169, -93, -51, -122, 70)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
