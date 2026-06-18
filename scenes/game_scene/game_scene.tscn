@@ -67,7 +67,7 @@ text = "00"
 
 [node name="Map" parent="CanvasLayer" unique_id=2027347819 instance=ExtResource("12_3di6p")]
 
-[node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
+[node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
 
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
