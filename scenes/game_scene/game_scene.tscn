@@ -27,6 +27,7 @@
 script = ExtResource("1_wmtvo")
 TOTAL_ANOMALY_COUNT = 4
 DARKEN_START_TIME = 4.0
+DARKEN_COLOR = Color(0.18645892, 0.18645906, 0.18645903, 1)
 MUTATE_START_TIME = 10.0
 MUTATE_END_TIME = 30.0
 TOTAL_TIME = 120.0
@@ -148,6 +149,9 @@ position_smoothing_enabled = true
 offset_left = 4.0
 offset_top = -226.0
 offset_right = 297.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=461784361]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="Floor1StairsButton" to="." method="_on_floor_1_stairs_button_pressed"]
 [connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]
