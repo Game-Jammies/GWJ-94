@@ -12,12 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
 [ext_resource type="Texture2D" uid="uid://cadty06k0cuxq" path="res://assets/artwork/Godot Jam 94/TowerBase2.png" id="13_1ypwy"]
 [ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
+[ext_resource type="Texture2D" uid="uid://52x6owu68hm8" path="res://assets/artwork/plant_anomaly.png" id="14_dv4yt"]
 [ext_resource type="PackedScene" uid="uid://mmbis6wfk0mv" path="res://scenes/thing/stain_glass_L.tscn" id="14_iprv4"]
 [ext_resource type="PackedScene" uid="uid://bnui2ilab8max" path="res://scenes/thing/stain_glass_R.tscn" id="15_1ypwy"]
 [ext_resource type="PackedScene" uid="uid://c2cqlq0rkie8c" path="res://scenes/thing/plant.tscn" id="15_hunbn"]
+[ext_resource type="Texture2D" uid="uid://dxqlghpfh5uep" path="res://assets/artwork/cactus_anomaly.png" id="15_ojnix"]
 [ext_resource type="PackedScene" uid="uid://i7rjioco0cnf" path="res://scenes/thing/cactus.tscn" id="16_hunbn"]
 [ext_resource type="PackedScene" uid="uid://cali3swfkgq7g" path="res://scenes/thing/feather.tscn" id="17_7aaem"]
 [ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
+[ext_resource type="Texture2D" uid="uid://c6v0evj7gbm1q" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -66,11 +69,6 @@ text = "00"
 [node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
 
-[node name="Potions" parent="." unique_id=1208629607 instance=ExtResource("13_jytbd")]
-position = Vector2(689, 407)
-norm_pos = Vector2(689, 407)
-norm_sprite = ExtResource("8_iprv4")
-
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
 unique_name_in_owner = true
 script = ExtResource("9_j6s53")
@@ -84,29 +82,45 @@ z_index = -10
 position = Vector2(960, 540)
 texture = ExtResource("13_1ypwy")
 
-[node name="stain_glass_L" parent="." unique_id=327117180 instance=ExtResource("14_iprv4")]
+[node name="ThingParent" type="Node2D" parent="." unique_id=940171609]
+unique_name_in_owner = true
+
+[node name="StainedGlassL" parent="ThingParent" unique_id=327117180 instance=ExtResource("14_iprv4")]
 z_index = -11
 position = Vector2(1272, 366)
 norm_pos = Vector2(1272, 366)
+anom_pos = Vector2(1272, 366)
 
-[node name="stain_glass_R" parent="." unique_id=720551442 instance=ExtResource("15_1ypwy")]
+[node name="StainedGlassR" parent="ThingParent" unique_id=720551442 instance=ExtResource("15_1ypwy")]
 z_index = -11
 position = Vector2(1678, 417)
 norm_pos = Vector2(1681, 414)
+anom_pos = Vector2(1681, 414)
 
-[node name="plant" parent="." unique_id=865879477 instance=ExtResource("15_hunbn")]
-position = Vector2(1519, 323)
-norm_pos = Vector2(1519, 323)
-
-[node name="cactus" parent="." unique_id=773853580 instance=ExtResource("16_hunbn")]
-z_index = -1
-position = Vector2(1381, 189)
-norm_pos = Vector2(1381, 189)
-
-[node name="feather" parent="." unique_id=196654755 instance=ExtResource("17_7aaem")]
-position = Vector2(1097, 534)
-norm_pos = Vector2(1096, 533)
-
-[node name="books" parent="." unique_id=2140462739 instance=ExtResource("18_bwcss")]
+[node name="Books" parent="ThingParent" unique_id=2140462739 instance=ExtResource("18_bwcss")]
+visible = false
 position = Vector2(640, 727)
 norm_pos = Vector2(640, 727)
+
+[node name="VinePlant" parent="ThingParent" unique_id=2094822783 instance=ExtResource("15_hunbn")]
+position = Vector2(1521, 322)
+norm_pos = Vector2(1521, 322)
+anom_pos = Vector2(1521, 322)
+anom_sprite = ExtResource("14_dv4yt")
+
+[node name="Cactus" parent="ThingParent" unique_id=1435210064 instance=ExtResource("16_hunbn")]
+position = Vector2(1409, 191)
+norm_pos = Vector2(1409, 191)
+anom_pos = Vector2(1409, 191)
+anom_sprite = ExtResource("15_ojnix")
+
+[node name="Potions" parent="ThingParent" unique_id=1208629607 instance=ExtResource("13_jytbd")]
+position = Vector2(689, 407)
+norm_pos = Vector2(689, 407)
+norm_sprite = ExtResource("8_iprv4")
+
+[node name="Feather" parent="ThingParent" unique_id=196654755 instance=ExtResource("17_7aaem")]
+position = Vector2(1097, 534)
+norm_pos = Vector2(1096, 533)
+anom_pos = Vector2(1096, 533)
+anom_sprite = ExtResource("21_v03ia")

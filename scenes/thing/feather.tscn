@@ -16,7 +16,7 @@ shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
-[node name="feather" type="Node2D" unique_id=865879477]
+[node name="Feather" type="Node2D" unique_id=865879477]
 script = ExtResource("1_budlp")
 norm_sprite = ExtResource("3_jx0rf")
 
@@ -32,7 +32,7 @@ material = SubResource("ShaderMaterial_kwhnr")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1865597580]
 position = Vector2(-5, 1)
-polygon = PackedVector2Array(-136, -41, 17, 98, 81, 50, -44, -91)
+polygon = PackedVector2Array(-60, 58, 40, 91, 68, 62, 26, -28, -17, -57, -81, -86, -130, -79, -123, -4)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
