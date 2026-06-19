@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bn6b3xnlcxkpx"]
+
+[ext_resource type="Script" uid="uid://b1s0s68jo6qga" path="res://scenes/cursor/cursor.gd" id="1_thsrq"]
+[ext_resource type="Texture2D" uid="uid://dtkn4k5kuri1n" path="res://assets/functional/light-texture.png" id="2_vfs5k"]
+[ext_resource type="Texture2D" uid="uid://doue0bur5ra2x" path="res://scenes/cursor/dark_bg_texture.tres" id="4_75asm"]
+[ext_resource type="Texture2D" uid="uid://br5a1pxtjdrf2" path="res://assets/functional/light-texture-transparent.png" id="5_75asm"]
+[ext_resource type="Shader" uid="uid://bad0ydp1d3kg1" path="res://scenes/cursor/cursor_canvas_item_shader.tres" id="6_dicen"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_75asm"]
+viewport_path = NodePath("ParticleViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh5jq"]
+resource_local_to_scene = true
+shader = ExtResource("6_dicen")
+shader_parameter/CutoutTexture = SubResource("ViewportTexture_75asm")
+
+[sub_resource type="Gradient" id="Gradient_bh42h"]
+offsets = PackedFloat32Array(0, 0.1490566, 0.56037736, 0.790566, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.6117647, 1, 1, 1, 0.105882354, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_thsrq"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bh42h"]
+gradient = SubResource("Gradient_thsrq")
+
+[sub_resource type="Gradient" id="Gradient_vfs5k"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.36010364, 0.5569948)
+colors = PackedColorArray(0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s1lhg"]
+gradient = SubResource("Gradient_vfs5k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Cursor" type="Node2D" unique_id=956710945]
+script = ExtResource("1_thsrq")
+
+[node name="DarknessSprite" type="Sprite2D" parent="." unique_id=1196885198]
+material = SubResource("ShaderMaterial_dh5jq")
+texture = ExtResource("4_75asm")
+centered = false
+
+[node name="ParticleViewport" type="SubViewport" parent="." unique_id=531173389]
+disable_3d = true
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1920, 1080)
+
+[node name="CutoutParticles" type="CPUParticles2D" parent="ParticleViewport" unique_id=763868193]
+unique_name_in_owner = true
+position = Vector2(468.5, 257.5)
+amount = 25
+texture = ExtResource("5_75asm")
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 70.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 1.2
+scale_amount_max = 1.3
+color_ramp = SubResource("Gradient_bh42h")
+
+[node name="MouseFollow" type="Node2D" parent="." unique_id=1861996828]
+unique_name_in_owner = true
+
+[node name="PointLight2D" type="PointLight2D" parent="MouseFollow" unique_id=1049622922]
+visible = false
+position = Vector2(479, 255)
+texture = ExtResource("2_vfs5k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MouseFollow" unique_id=1551324993]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MouseFollow/CanvasLayer" unique_id=908319915]
+unique_name_in_owner = true
+z_index = -5
+texture_filter = 1
+offset_left = 441.0
+offset_top = 224.0
+offset_right = 505.0
+offset_bottom = 288.0
+mouse_filter = 2
+step = 0.01
+fill_mode = 4
+texture_under = SubResource("GradientTexture2D_bh42h")
+texture_progress = SubResource("GradientTexture2D_s1lhg")
+tint_under = Color(1, 1, 1, 0)
