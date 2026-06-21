@@ -29,16 +29,20 @@ var event_list: Array[Event] = []
 ## List of potential Things to mutate. 
 ## Populated with visible children of "ThingParent" node, ordered randomly.
 var thing_pool: Array[Thing] = [] 
+var anomalies_found: int
 
 
 
 func _ready() -> void:
 	initial_color = canvas_modulate.color
+	anomalies_found = 0
+	
 	
 	# ----- Populate Thing Pool -----
 	for thing in thing_parent.get_children():
 		if thing.visible:
 			thing_pool.append(thing)
+			thing.anomaly_found.connect(_on_anomaly_found)
 	thing_pool.shuffle()
 	
 	
@@ -71,6 +75,8 @@ func _process(_delta: float) -> void:
 			do_event(event)
 		else: 
 			i += 1
+	if anomalies_found == TOTAL_ANOMALY_COUNT:
+		win_game()
 
 func do_event(event: Event):
 	match event.type:
@@ -106,8 +112,8 @@ func lose_game() -> void:
 	win_lose_manager.game_lost()
 
 
-# Keep a list of all things
-# after some time, convert a thing to its anomoly variant
+func _on_anomaly_found() -> void:
+	anomalies_found += 1
 
 ## Button to go up to the second floor
 func _on_floor_1_stairs_button_pressed() -> void:

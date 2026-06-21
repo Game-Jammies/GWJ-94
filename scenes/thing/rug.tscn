@@ -8,7 +8,7 @@
 shader = ExtResource("3_bhc7h")
 shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
-shader_parameter/Width = 5.0
+shader_parameter/Width = 2.0
 
 [node name="Rug" unique_id=865879477 instance=ExtResource("1_478kr")]
 norm_sprite = ExtResource("2_bhc7h")

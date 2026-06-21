@@ -33,11 +33,11 @@
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
-TOTAL_ANOMALY_COUNT = 4
+TOTAL_ANOMALY_COUNT = 12
 DARKEN_START_TIME = 4.0
 DARKEN_COLOR = Color(1, 1, 1, 1)
 MUTATE_START_TIME = 10.0
-MUTATE_END_TIME = 30.0
+MUTATE_END_TIME = 90.0
 TOTAL_TIME = 120.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108104848]
@@ -156,6 +156,7 @@ anom_pos = Vector2(104, 125)
 [node name="Herbs3" parent="ThingParent" unique_id=838631914 instance=ExtResource("25_alpjs")]
 position = Vector2(1736, 125)
 norm_pos = Vector2(1736, 125)
+anom_pos = Vector2(1736, 125)
 
 [node name="Rug" parent="ThingParent" unique_id=766970283 instance=ExtResource("26_ntnyb")]
 position = Vector2(1066, 927)
@@ -199,6 +200,5 @@ visible = false
 
 [node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]
