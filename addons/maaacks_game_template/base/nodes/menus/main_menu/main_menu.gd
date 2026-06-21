@@ -27,7 +27,7 @@ var sub_menu : Control
 @onready var menu_buttons_box_container = %MenuButtonsBoxContainer
 @onready var new_game_button = %NewGameButton
 @onready var options_button = %OptionsButton
-@onready var credits_button = %CreditsButton
+#@onready var credits_button = %CreditsButton
 @onready var exit_button = %ExitButton
 @onready var exit_confirmation = %ExitConfirmation
 ## If Maaack's Scene Loader is installed, then it will be used to change scenes.
@@ -106,7 +106,7 @@ func _hide_options_if_unset() -> void:
 
 func _hide_credits_if_unset() -> void:
 	if credits_packed_scene == null:
-		credits_button.hide()
+		pass#credits_button.hide()
 
 func _ready() -> void:
 	_hide_exit_for_web()

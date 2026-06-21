@@ -50,7 +50,7 @@ func make_anomaly() -> void:
 	is_anomaly = true
 
 func _on_area_2d_mouse_entered() -> void:
-	print("mouse entered")
+	#print("mouse entered")
 	mouse_over = true
 	if sprite.material.shader != null:
 		sprite.material.set_shader_parameter("is_hovered", true)
@@ -78,8 +78,8 @@ func _input(event: InputEvent) -> void:
 			selecting.stop()
 			_on_click_released()
 
-func _on_click_started() -> void:
-	print("Sprite is clicked")
+func _on_click_started() -> void: pass
+	#print("Sprite is clicked")
 	
 func _while_held() -> void:
 	#print("Mouse held down!")
