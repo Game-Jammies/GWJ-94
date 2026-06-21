@@ -128,9 +128,9 @@ norm_sprite = ExtResource("8_iprv4")
 anom_pos = Vector2(688, -880)
 
 [node name="Feather" parent="ThingParent" unique_id=196654755 instance=ExtResource("17_7aaem")]
-position = Vector2(1097, 534)
-norm_pos = Vector2(1096, 533)
-anom_pos = Vector2(1096, 533)
+position = Vector2(1078, 538)
+norm_pos = Vector2(1078, 538)
+anom_pos = Vector2(1078, 538)
 anom_sprite = ExtResource("21_v03ia")
 
 [node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
