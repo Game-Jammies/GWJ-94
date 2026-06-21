@@ -5,6 +5,9 @@ class_name GameScene extends Node2D
 @onready var win_lose_manager = %WinLoseManager
 @onready var camera: Camera2D = %Camera2D
 @onready var thing_parent: Node2D = %ThingParent
+@onready var stairs: AudioStreamPlayer = $"AudioManager/Stairs"
+@onready var win: AudioStreamPlayer = $"AudioManager/win"
+@onready var lose: AudioStreamPlayer = $"AudioManager/lose"
 
 const FLOOR_1_CAM_POS := Vector2(0.0,0.0)
 const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
@@ -82,11 +85,13 @@ func do_event(event: Event):
 
 
 func win_game() -> void:
+	win.play()
 	win_lose_manager.game_won()
 	timer.stop()
 
 
 func lose_game() -> void: 
+	lose.play()
 	win_lose_manager.game_lost()
 	timer.stop()
 
@@ -96,6 +101,7 @@ func lose_game() -> void:
 
 ## Button to go up to the second floor
 func _on_floor_1_stairs_button_pressed() -> void:
+	stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -103,6 +109,7 @@ func _on_floor_1_stairs_button_pressed() -> void:
 
 
 func _on_floor_2_stairs_button_pressed() -> void:
+	stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)

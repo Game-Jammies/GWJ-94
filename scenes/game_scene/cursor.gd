@@ -7,6 +7,7 @@ class_name Cursor extends Node2D
 @onready var light: PointLight2D = %PointLight2D
 @onready var progress: TextureProgressBar = %TextureProgressBar
 
+
 #how much time to completely fill, increase per second
 @export var fill_time: float = 2.0
 
