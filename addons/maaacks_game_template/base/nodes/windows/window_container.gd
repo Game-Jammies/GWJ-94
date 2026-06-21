@@ -52,6 +52,9 @@ func close() -> void:
 	hide()
 	closed.emit()
 
+func _on_close_button_pressed() -> void:
+	close()
+
 func _handle_cancel_input() -> void:
 	close()
 

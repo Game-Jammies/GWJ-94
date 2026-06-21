@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cq1qumwwggtv4"]
+
+[ext_resource type="PackedScene" uid="uid://pwoke6irxmf6" path="res://scenes/thing/thing.tscn" id="1_y4xtp"]
+[ext_resource type="Texture2D" uid="uid://bd4iqht6pu2rx" path="res://assets/artwork/frog.png" id="2_b4olr"]
+[ext_resource type="Texture2D" uid="uid://daf320wi0cbrf" path="res://assets/artwork/frog_anomaly.png" id="3_cqa8e"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="4_b4olr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqa8e"]
+shader = ExtResource("4_b4olr")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 5.0
+
+[node name="Frog" unique_id=865879477 instance=ExtResource("1_y4xtp")]
+norm_sprite = ExtResource("2_b4olr")
+anom_sprite = ExtResource("3_cqa8e")
+
+[node name="Sprite2D" parent="." index="0" unique_id=897235112]
+material = SubResource("ShaderMaterial_cqa8e")
+texture = ExtResource("2_b4olr")
+
+[node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
+polygon = PackedVector2Array(-98, 89, 91, 88, 81, -46, -58, -45)
