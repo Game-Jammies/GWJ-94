@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tower Of Errors"
 run/main_scene="res://scenes/opening/opening.tscn"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
@@ -29,6 +29,7 @@ shapes/collision/contact_color=Color(1, 0.2, 0.101960786, 0.39215687)
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
