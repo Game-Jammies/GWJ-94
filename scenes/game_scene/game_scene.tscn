@@ -23,7 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
 [ext_resource type="Texture2D" uid="uid://c6v0evj7gbm1q" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
 [ext_resource type="PackedScene" uid="uid://cnu72bxugic0f" path="res://scenes/AudioManager/audio_manager.tscn" id="23_3mv4o"]
+[ext_resource type="PackedScene" uid="uid://mdyeujpmp8g8" path="res://scenes/thing/herbs_1.tscn" id="23_amtkd"]
 [ext_resource type="PackedScene" uid="uid://cq1qumwwggtv4" path="res://scenes/thing/frog.tscn" id="23_i6h5s"]
+[ext_resource type="PackedScene" uid="uid://wdjqsgc8ot5" path="res://scenes/thing/herbs_2.tscn" id="24_43d25"]
+[ext_resource type="PackedScene" uid="uid://b0ks0jl3pgssh" path="res://scenes/thing/herbs_3.tscn" id="25_alpjs"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -136,6 +139,20 @@ position = Vector2(1651, 976)
 norm_pos = Vector2(1651, 976)
 anom_pos = Vector2(1651, 976)
 
+[node name="Herbs1" parent="ThingParent" unique_id=943044065 instance=ExtResource("23_amtkd")]
+position = Vector2(298, 118)
+norm_pos = Vector2(298, 125)
+anom_pos = Vector2(1124, 125)
+
+[node name="Herbs2" parent="ThingParent" unique_id=803090814 instance=ExtResource("24_43d25")]
+position = Vector2(567, 125)
+norm_pos = Vector2(567, 125)
+anom_pos = Vector2(104, 125)
+
+[node name="Herbs3" parent="ThingParent" unique_id=838631914 instance=ExtResource("25_alpjs")]
+position = Vector2(1736, 125)
+norm_pos = Vector2(1736, 125)
+
 [node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
 visible = false
 offset_left = 2.0
@@ -163,5 +180,6 @@ visible = false
 
 [node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]
