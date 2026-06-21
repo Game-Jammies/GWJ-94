@@ -132,3 +132,4 @@ position_smoothing_enabled = true
 
 [node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
+visible = false

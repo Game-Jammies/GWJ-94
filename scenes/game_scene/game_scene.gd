@@ -25,6 +25,7 @@ var thing_pool: Array[Thing] = []
 
 
 func _ready() -> void:
+	cursor.show()
 	
 	# ----- Populate Thing Pool -----
 	for thing in thing_parent.get_children():
