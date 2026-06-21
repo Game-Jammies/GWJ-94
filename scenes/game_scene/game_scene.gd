@@ -26,7 +26,6 @@ var anomalies_found: int
 
 
 func _ready() -> void:
-	initial_color = canvas_modulate.color
 	anomalies_found = 0
 	
 	
@@ -106,19 +105,3 @@ func lose_game() -> void:
 
 func _on_anomaly_found() -> void:
 	anomalies_found += 1
-
-## Button to go up to the second floor
-func _on_floor_1_stairs_button_pressed() -> void:
-	sfx_stairs.play()
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(camera,"position",FLOOR_2_CAM_POS,1.0)
-
-
-func _on_floor_2_stairs_button_pressed() -> void:
-	sfx_stairs.play()
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(camera,"position",FLOOR_1_CAM_POS,1.0)

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2dutgkvja0sq" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
 [ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
 [ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
+[ext_resource type="Texture2D" uid="uid://cadty06k0cuxq" path="res://assets/artwork/Godot Jam 94/TowerBase2.png" id="13_1ypwy"]
 [ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
 [ext_resource type="PackedScene" uid="uid://bjc3giwq7exva" path="res://scenes/game_scene/upstairs_room.tscn" id="13_up"]
 [ext_resource type="Texture2D" uid="uid://52x6owu68hm8" path="res://assets/artwork/plant_anomaly.png" id="14_dv4yt"]
@@ -83,13 +84,8 @@ game_won_scene = ExtResource("10_hqmgi")
 game_lost_scene = ExtResource("11_3di6p")
 
 [node name="UpstairsRoom" parent="." unique_id=850423136 instance=ExtResource("13_up")]
-visible = false
-z_index = -10
-
-[node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
 z_index = -10
 texture = ExtResource("13_1ypwy")
-centered = false
 
 [node name="ThingParent" type="Node2D" parent="." unique_id=940171609]
 unique_name_in_owner = true
@@ -171,24 +167,10 @@ position = Vector2(1702, 852)
 norm_pos = Vector2(1702, 852)
 anom_pos = Vector2(1702, 852)
 
-[node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
-visible = false
-offset_left = 2.0
-offset_top = 842.99994
-offset_right = 77.0
-offset_bottom = 917.6733
-scale = Vector2(3.964634, 3.1727488)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=855955129]
 unique_name_in_owner = true
 offset = Vector2(960, 540)
 position_smoothing_enabled = true
-
-[node name="Floor2StairsButton" type="Button" parent="." unique_id=1472650288]
-visible = false
-offset_left = 4.0
-offset_top = -226.0
-offset_right = 297.0
 
 [node name="AudioManager" parent="." unique_id=389216503 instance=ExtResource("23_3mv4o")]
 
