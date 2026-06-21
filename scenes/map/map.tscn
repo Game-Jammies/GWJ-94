@@ -31,6 +31,7 @@ offset_bottom = 1120.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=751649683]
+self_modulate = Color(0.4, 0.4, 0.4, 1)
 visibility_layer = 2
 z_index = -1
 layout_mode = 0
