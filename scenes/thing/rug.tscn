@@ -11,6 +11,7 @@ shader_parameter/is_hovered = false
 shader_parameter/Width = 5.0
 
 [node name="Rug" unique_id=865879477 instance=ExtResource("1_478kr")]
+norm_sprite = ExtResource("2_bhc7h")
 anom_sprite = ExtResource("2_bhc7h")
 
 [node name="Sprite2D" parent="." index="0" unique_id=897235112]
@@ -18,4 +19,4 @@ material = SubResource("ShaderMaterial_rxf3j")
 texture = ExtResource("2_bhc7h")
 
 [node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
-polygon = PackedVector2Array(-625, 152, 242, 229, 639, 4, 37, -150)
+polygon = PackedVector2Array(-575, 147, 225, 210, 565, 13, 35, -129)

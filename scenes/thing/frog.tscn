@@ -20,4 +20,4 @@ material = SubResource("ShaderMaterial_cqa8e")
 texture = ExtResource("2_b4olr")
 
 [node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
-polygon = PackedVector2Array(-104, 90, 110, 91, 91, -63, -93, -67)
+polygon = PackedVector2Array(-98, 89, 91, 88, 81, -46, -58, -45)

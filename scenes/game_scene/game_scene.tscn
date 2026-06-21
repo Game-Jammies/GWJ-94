@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://wdjqsgc8ot5" path="res://scenes/thing/herbs_2.tscn" id="24_43d25"]
 [ext_resource type="PackedScene" uid="uid://b0ks0jl3pgssh" path="res://scenes/thing/herbs_3.tscn" id="25_alpjs"]
 [ext_resource type="PackedScene" uid="uid://c716r7r8d0bfi" path="res://scenes/thing/rug.tscn" id="26_ntnyb"]
+[ext_resource type="PackedScene" uid="uid://b5vbkjayh1lct" path="res://scenes/thing/spell_book.tscn" id="27_myslx"]
+[ext_resource type="PackedScene" uid="uid://vt7hgtriovop" path="res://scenes/thing/mushrooms.tscn" id="28_xe7mm"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -128,7 +130,7 @@ anom_sprite = ExtResource("15_ojnix")
 position = Vector2(689, 407)
 norm_pos = Vector2(689, 407)
 norm_sprite = ExtResource("8_iprv4")
-anom_pos = Vector2(688, -880)
+anom_pos = Vector2(714, 613)
 
 [node name="Feather" parent="ThingParent" unique_id=196654755 instance=ExtResource("17_7aaem")]
 position = Vector2(1078, 538)
@@ -137,9 +139,9 @@ anom_pos = Vector2(1078, 538)
 anom_sprite = ExtResource("21_v03ia")
 
 [node name="Frog" parent="ThingParent" unique_id=865879477 instance=ExtResource("23_i6h5s")]
-position = Vector2(1807, 918)
-norm_pos = Vector2(1807, 918)
-anom_pos = Vector2(1807, 918)
+position = Vector2(1702, 1001)
+norm_pos = Vector2(1702, 1001)
+anom_pos = Vector2(1702, 1001)
 
 [node name="Herbs1" parent="ThingParent" unique_id=943044065 instance=ExtResource("23_amtkd")]
 position = Vector2(298, 118)
@@ -159,6 +161,16 @@ norm_pos = Vector2(1736, 125)
 position = Vector2(1066, 927)
 norm_pos = Vector2(-200, -200)
 anom_pos = Vector2(1066, 927)
+
+[node name="SpellBook" parent="ThingParent" unique_id=713324797 instance=ExtResource("27_myslx")]
+position = Vector2(1272, 630)
+norm_pos = Vector2(1272, 630)
+anom_pos = Vector2(1272, 630)
+
+[node name="Mushrooms" parent="ThingParent" unique_id=2016343774 instance=ExtResource("28_xe7mm")]
+position = Vector2(1702, 852)
+norm_pos = Vector2(1702, 852)
+anom_pos = Vector2(1702, 852)
 
 [node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
 visible = false
