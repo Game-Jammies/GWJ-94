@@ -79,11 +79,11 @@ game_won_scene = ExtResource("10_hqmgi")
 game_lost_scene = ExtResource("11_3di6p")
 
 [node name="UpstairsRoom" parent="." unique_id=850423136 instance=ExtResource("13_up")]
+visible = false
 z_index = -10
 
 [node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
 z_index = -10
-position = Vector2(0, 1080)
 texture = ExtResource("13_1ypwy")
 centered = false
 
@@ -133,8 +133,11 @@ anom_sprite = ExtResource("21_v03ia")
 
 [node name="Frog" parent="ThingParent" unique_id=865879477 instance=ExtResource("23_i6h5s")]
 position = Vector2(1651, 976)
+norm_pos = Vector2(1651, 976)
+anom_pos = Vector2(1651, 976)
 
 [node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
+visible = false
 offset_left = 2.0
 offset_top = 842.99994
 offset_right = 77.0
@@ -147,6 +150,7 @@ offset = Vector2(960, 540)
 position_smoothing_enabled = true
 
 [node name="Floor2StairsButton" type="Button" parent="." unique_id=1472650288]
+visible = false
 offset_left = 4.0
 offset_top = -226.0
 offset_right = 297.0
