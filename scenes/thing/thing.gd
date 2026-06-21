@@ -1,7 +1,7 @@
 class_name Thing extends Node2D
 
 # Clickable objects
-signal anomaly_found(name: String)
+signal anomaly_found()
 signal incorrect_guess
 
 @onready var sprite: Sprite2D = %Sprite2D
@@ -119,7 +119,7 @@ func _thing_selected():
 	if is_anomaly:
 		successful_select.play()
 		make_normal()
-		anomaly_found.emit(self.name)
+		anomaly_found.emit()
 		pass
 	else:
 		unsuccessful_select.play()

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://wdjqsgc8ot5"]
+
+[ext_resource type="PackedScene" uid="uid://pwoke6irxmf6" path="res://scenes/thing/thing.tscn" id="1_i4uum"]
+[ext_resource type="Texture2D" uid="uid://wvqq8c16gryn" path="res://assets/artwork/herbs2.png" id="2_esppx"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="3_g4oqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l153w"]
+shader = ExtResource("3_g4oqy")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 5.0
+
+[node name="Herbs2" unique_id=865879477 instance=ExtResource("1_i4uum")]
+norm_sprite = ExtResource("2_esppx")
+anom_sprite = ExtResource("2_esppx")
+
+[node name="Sprite2D" parent="." index="0" unique_id=897235112]
+material = SubResource("ShaderMaterial_l153w")
+texture = ExtResource("2_esppx")
+
+[node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
+polygon = PackedVector2Array(-107, 183, 89, 175, 98, -184, -102, -177)
