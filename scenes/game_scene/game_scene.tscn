@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b2dutgkvja0sq" path="res://scenes/win_scene/win.tscn" id="10_hqmgi"]
 [ext_resource type="PackedScene" uid="uid://u38s4ba85ne2" path="res://scenes/lose_scene/lose.tscn" id="11_3di6p"]
 [ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
-[ext_resource type="Texture2D" uid="uid://cadty06k0cuxq" path="res://assets/artwork/Godot Jam 94/TowerBase2.png" id="13_1ypwy"]
 [ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
 [ext_resource type="PackedScene" uid="uid://bjc3giwq7exva" path="res://scenes/game_scene/upstairs_room.tscn" id="13_up"]
 [ext_resource type="Texture2D" uid="uid://52x6owu68hm8" path="res://assets/artwork/plant_anomaly.png" id="14_dv4yt"]
@@ -35,7 +34,6 @@
 script = ExtResource("1_wmtvo")
 TOTAL_ANOMALY_COUNT = 12
 DARKEN_START_TIME = 4.0
-DARKEN_COLOR = Color(1, 1, 1, 1)
 MUTATE_START_TIME = 10.0
 MUTATE_END_TIME = 90.0
 TOTAL_TIME = 120.0
@@ -194,11 +192,5 @@ offset_right = 297.0
 
 [node name="AudioManager" parent="." unique_id=389216503 instance=ExtResource("23_3mv4o")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=461784361]
-unique_name_in_owner = true
-visible = false
-
 [node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
-
-[connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]

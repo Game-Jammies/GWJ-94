@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bn6b3xnlcxkpx"]
 
 [ext_resource type="Script" uid="uid://b1s0s68jo6qga" path="res://scenes/cursor/cursor.gd" id="1_thsrq"]
-[ext_resource type="Texture2D" uid="uid://dtkn4k5kuri1n" path="res://assets/functional/light-texture.png" id="2_vfs5k"]
 [ext_resource type="Texture2D" uid="uid://doue0bur5ra2x" path="res://scenes/cursor/dark_bg_texture.tres" id="4_75asm"]
 [ext_resource type="Texture2D" uid="uid://br5a1pxtjdrf2" path="res://assets/functional/light-texture-transparent.png" id="5_75asm"]
 [ext_resource type="Shader" uid="uid://bad0ydp1d3kg1" path="res://scenes/cursor/cursor_canvas_item_shader.tres" id="6_dicen"]
@@ -36,8 +35,10 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="Cursor" type="Node2D" unique_id=956710945]
 script = ExtResource("1_thsrq")
+DARKNESS_COLOR = Color(0.03529412, 0.02745098, 0.05882353, 1)
 
 [node name="DarknessSprite" type="Sprite2D" parent="." unique_id=1196885198]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_dh5jq")
 texture = ExtResource("4_75asm")
 centered = false
@@ -51,8 +52,9 @@ size = Vector2i(1920, 1080)
 [node name="CutoutParticles" type="CPUParticles2D" parent="ParticleViewport" unique_id=763868193]
 unique_name_in_owner = true
 position = Vector2(468.5, 257.5)
-amount = 40
+amount = 30
 texture = ExtResource("5_75asm")
+lifetime = 0.5
 draw_order = 1
 emission_shape = 1
 emission_sphere_radius = 70.0
@@ -68,11 +70,6 @@ color_ramp = SubResource("Gradient_bh42h")
 
 [node name="MouseFollow" type="Node2D" parent="." unique_id=1861996828]
 unique_name_in_owner = true
-
-[node name="PointLight2D" type="PointLight2D" parent="MouseFollow" unique_id=1049622922]
-visible = false
-position = Vector2(479, 255)
-texture = ExtResource("2_vfs5k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MouseFollow" unique_id=1551324993]
 

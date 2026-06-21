@@ -1,27 +1,19 @@
 class_name GameScene extends Node2D
 
-@onready var cursor = %Cursor
+@onready var cursor: Cursor = %Cursor
 @onready var timer = %Timer
 @onready var win_lose_manager = %WinLoseManager
 @onready var camera: Camera2D = %Camera2D
 @onready var thing_parent: Node2D = %ThingParent
-@onready var canvas_modulate: CanvasModulate = %CanvasModulate
 @onready var sfx_stairs: AudioStreamPlayer = $"AudioManager/Stairs"
 @onready var sfx_win:    AudioStreamPlayer = $"AudioManager/win"
 @onready var sfx_lose:   AudioStreamPlayer = $"AudioManager/lose"
 
-const FLOOR_1_CAM_POS := Vector2(0.0, 0.0)
-const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
-
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float
-@export var DARKEN_COLOR: Color = Color.GRAY
 @export var MUTATE_START_TIME: float
 @export var MUTATE_END_TIME: float
 @export var TOTAL_TIME: float
-
-## Stores the original color of the CanvasModulate node
-var initial_color: Color 
 
 ## List of events scheduled to happen during the game.
 var event_list: Array[Event] = []
@@ -82,7 +74,7 @@ func do_event(event: Event):
 	match event.type:
 		Event.Type.DARKEN:
 			print("%.2f - DOING DARKEN EVENT" % event.date)
-			canvas_modulate.color = DARKEN_COLOR
+			cursor.fade_darkness_opacity(1.0, 5.0)
 			
 		Event.Type.MUTATE:
 			print("%.2f - DOING MUTATE EVENT" % event.date)
@@ -101,14 +93,14 @@ func do_event(event: Event):
 func win_game() -> void:
 	sfx_win.play()
 	timer.stop()
-	canvas_modulate.color = initial_color
+	cursor.fade_darkness_opacity(0.0, 0.75)
 	win_lose_manager.game_won()
 
 
 func lose_game() -> void: 
 	sfx_lose.play()
 	timer.stop()
-	canvas_modulate.color = initial_color
+	cursor.fade_darkness_opacity(0.0, 0.75)
 	win_lose_manager.game_lost()
 
 
