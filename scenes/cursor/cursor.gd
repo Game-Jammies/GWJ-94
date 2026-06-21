@@ -4,7 +4,8 @@ This script handles items following and related to the cursor
 
 class_name Cursor extends Node2D
 
-@onready var light: PointLight2D = %PointLight2D
+@onready var mouse_follow_node: Node2D = %MouseFollow
+@onready var cutout_particles: CPUParticles2D = %CutoutParticles
 @onready var progress: TextureProgressBar = %TextureProgressBar
 
 
@@ -23,9 +24,11 @@ signal thing_select(pos: Vector2)
 func _process(delta: float) -> void:	
 	#update positions
 	if not mouse_down:
-		light.global_position = get_global_mouse_position()
+		mouse_follow_node.global_position = get_global_mouse_position()
+		cutout_particles.global_position = get_global_mouse_position()
 	else:
-		light.global_position = cursor_pos
+		mouse_follow_node.global_position = cursor_pos
+		cutout_particles.global_position = cursor_pos
 	progress.position = Vector2(cursor_screen_pos.x - progress.size.x/2, cursor_screen_pos.y - progress.size.y/2)
 
 	if mouse_down:
