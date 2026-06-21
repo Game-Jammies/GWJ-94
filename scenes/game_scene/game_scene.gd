@@ -5,30 +5,37 @@ class_name GameScene extends Node2D
 @onready var win_lose_manager = %WinLoseManager
 @onready var camera: Camera2D = %Camera2D
 @onready var thing_parent: Node2D = %ThingParent
-@onready var stairs: AudioStreamPlayer = $"AudioManager/Stairs"
-@onready var win: AudioStreamPlayer = $"AudioManager/win"
-@onready var lose: AudioStreamPlayer = $"AudioManager/lose"
+@onready var canvas_modulate: CanvasModulate = %CanvasModulate
+@onready var sfx_stairs: AudioStreamPlayer = $"AudioManager/Stairs"
+@onready var sfx_win:    AudioStreamPlayer = $"AudioManager/win"
+@onready var sfx_lose:   AudioStreamPlayer = $"AudioManager/lose"
 
-const FLOOR_1_CAM_POS := Vector2(0.0,0.0)
+const FLOOR_1_CAM_POS := Vector2(0.0, 0.0)
 const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
 
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float
+@export var DARKEN_COLOR: Color = Color.GRAY
 @export var MUTATE_START_TIME: float
 @export var MUTATE_END_TIME: float
 @export var TOTAL_TIME: float
 
-var event_list: Array[Event]
+## Stores the original color of the CanvasModulate node
+var initial_color: Color 
 
-var current_anomaly_count: int = 0
+## List of events scheduled to happen during the game.
+var event_list: Array[Event] = []
 
 ## List of potential Things to mutate. 
 ## Populated with visible children of "ThingParent" node, ordered randomly.
 var thing_pool: Array[Thing] = [] 
 
 
+
 func _ready() -> void:
-	# ----- Get All Things -----
+	initial_color = canvas_modulate.color
+	
+	# ----- Populate Thing Pool -----
 	for thing in thing_parent.get_children():
 		if thing.visible:
 			thing_pool.append(thing)
@@ -54,6 +61,7 @@ func _ready() -> void:
 	event_list.append(Event.new(Event.Type.TIME_UP, TOTAL_TIME))
 
 
+
 func _process(_delta: float) -> void:
 	var i = 0
 	while i < event_list.size():
@@ -68,6 +76,7 @@ func do_event(event: Event):
 	match event.type:
 		Event.Type.DARKEN:
 			print("%.2f - DOING DARKEN EVENT" % event.date)
+			canvas_modulate.color = DARKEN_COLOR
 			
 		Event.Type.MUTATE:
 			print("%.2f - DOING MUTATE EVENT" % event.date)
@@ -78,22 +87,23 @@ func do_event(event: Event):
 				printerr("Could not find a thing to mutate")
 			
 		Event.Type.TIME_UP:
-			print("%.2f - DOING TIME_UP EVENT" % event.date)
 			lose_game()
 	pass
 
 
 
 func win_game() -> void:
-	win.play()
-	win_lose_manager.game_won()
+	sfx_win.play()
 	timer.stop()
+	canvas_modulate.color = initial_color
+	win_lose_manager.game_won()
 
 
 func lose_game() -> void: 
-	lose.play()
-	win_lose_manager.game_lost()
+	sfx_lose.play()
 	timer.stop()
+	canvas_modulate.color = initial_color
+	win_lose_manager.game_lost()
 
 
 # Keep a list of all things
@@ -101,7 +111,7 @@ func lose_game() -> void:
 
 ## Button to go up to the second floor
 func _on_floor_1_stairs_button_pressed() -> void:
-	stairs.play()
+	sfx_stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -109,7 +119,7 @@ func _on_floor_1_stairs_button_pressed() -> void:
 
 
 func _on_floor_2_stairs_button_pressed() -> void:
-	stairs.play()
+	sfx_stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)

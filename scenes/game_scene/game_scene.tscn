@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bqcs8"]
 [ext_resource type="Script" uid="uid://idvteyxpf0to" path="res://scenes/game_scene/game_scene.gd" id="1_wmtvo"]
 [ext_resource type="PackedScene" uid="uid://d0x0md8t1eopc" path="res://scenes/windows/pause_menu_layer.tscn" id="2_onvsj"]
-[ext_resource type="PackedScene" uid="uid://bn6b3xnlcxkpx" path="res://scenes/game_scene/cursor.tscn" id="5_ducuf"]
+[ext_resource type="PackedScene" uid="uid://bn6b3xnlcxkpx" path="res://scenes/cursor/cursor.tscn" id="5_ducuf"]
 [ext_resource type="Script" uid="uid://d0ptrpaq3jhni" path="res://scenes/timer/timer.gd" id="5_v20na"]
 [ext_resource type="Texture2D" uid="uid://bwhkk7tmwpot8" path="res://assets/artwork/potions.png" id="8_iprv4"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_j6s53"]
@@ -29,6 +29,7 @@
 script = ExtResource("1_wmtvo")
 TOTAL_ANOMALY_COUNT = 4
 DARKEN_START_TIME = 4.0
+DARKEN_COLOR = Color(1, 1, 1, 1)
 MUTATE_START_TIME = 10.0
 MUTATE_END_TIME = 30.0
 TOTAL_TIME = 120.0
@@ -69,9 +70,6 @@ text = "00"
 
 [node name="Map" parent="CanvasLayer" unique_id=2027347819 instance=ExtResource("12_3di6p")]
 
-[node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
-unique_name_in_owner = true
-
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
 unique_name_in_owner = true
 script = ExtResource("9_j6s53")
@@ -82,12 +80,12 @@ game_lost_scene = ExtResource("11_3di6p")
 
 [node name="UpstairsRoom" parent="." unique_id=850423136 instance=ExtResource("13_up")]
 z_index = -10
-position = Vector2(0, -1080)
 
 [node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
 z_index = -10
-position = Vector2(960, 540)
+position = Vector2(0, 1080)
 texture = ExtResource("13_1ypwy")
+centered = false
 
 [node name="ThingParent" type="Node2D" parent="." unique_id=940171609]
 unique_name_in_owner = true
@@ -155,5 +153,11 @@ offset_right = 297.0
 
 [node name="AudioManager" parent="." unique_id=389216503 instance=ExtResource("23_3mv4o")]
 
-[connection signal="pressed" from="Floor1StairsButton" to="." method="_on_floor_1_stairs_button_pressed"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=461784361]
+unique_name_in_owner = true
+visible = false
+
+[node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
+unique_name_in_owner = true
+
 [connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]
