@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GWJ94"
+config/name="Tower Of Errors"
 run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
