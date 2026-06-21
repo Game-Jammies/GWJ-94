@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c716r7r8d0bfi"]
+
+[ext_resource type="PackedScene" uid="uid://pwoke6irxmf6" path="res://scenes/thing/thing.tscn" id="1_478kr"]
+[ext_resource type="Texture2D" uid="uid://bfgkpjq01426w" path="res://assets/artwork/rug.png" id="2_bhc7h"]
+[ext_resource type="Shader" uid="uid://bjmmp3iw6vu78" path="res://resources/shaders/outline.tres" id="3_bhc7h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxf3j"]
+shader = ExtResource("3_bhc7h")
+shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
+shader_parameter/is_hovered = false
+shader_parameter/Width = 5.0
+
+[node name="Rug" unique_id=865879477 instance=ExtResource("1_478kr")]
+anom_sprite = ExtResource("2_bhc7h")
+
+[node name="Sprite2D" parent="." index="0" unique_id=897235112]
+material = SubResource("ShaderMaterial_rxf3j")
+texture = ExtResource("2_bhc7h")
+
+[node name="CollisionPolygon2D" parent="Area2D" parent_id_path=PackedInt32Array(484373159) index="0" unique_id=1865597580]
+polygon = PackedVector2Array(-625, 152, 242, 229, 639, 4, 37, -150)

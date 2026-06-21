@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cq1qumwwggtv4" path="res://scenes/thing/frog.tscn" id="23_i6h5s"]
 [ext_resource type="PackedScene" uid="uid://wdjqsgc8ot5" path="res://scenes/thing/herbs_2.tscn" id="24_43d25"]
 [ext_resource type="PackedScene" uid="uid://b0ks0jl3pgssh" path="res://scenes/thing/herbs_3.tscn" id="25_alpjs"]
+[ext_resource type="PackedScene" uid="uid://c716r7r8d0bfi" path="res://scenes/thing/rug.tscn" id="26_ntnyb"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -108,6 +109,7 @@ anom_pos = Vector2(1681, 414)
 [node name="Books" parent="ThingParent" unique_id=2140462739 instance=ExtResource("18_bwcss")]
 position = Vector2(640, 727)
 norm_pos = Vector2(640, 727)
+anom_pos = Vector2(640, 727)
 
 [node name="VinePlant" parent="ThingParent" unique_id=2094822783 instance=ExtResource("15_hunbn")]
 position = Vector2(1521, 322)
@@ -135,9 +137,9 @@ anom_pos = Vector2(1078, 538)
 anom_sprite = ExtResource("21_v03ia")
 
 [node name="Frog" parent="ThingParent" unique_id=865879477 instance=ExtResource("23_i6h5s")]
-position = Vector2(1651, 976)
-norm_pos = Vector2(1651, 976)
-anom_pos = Vector2(1651, 976)
+position = Vector2(1807, 918)
+norm_pos = Vector2(1807, 918)
+anom_pos = Vector2(1807, 918)
 
 [node name="Herbs1" parent="ThingParent" unique_id=943044065 instance=ExtResource("23_amtkd")]
 position = Vector2(298, 118)
@@ -152,6 +154,11 @@ anom_pos = Vector2(104, 125)
 [node name="Herbs3" parent="ThingParent" unique_id=838631914 instance=ExtResource("25_alpjs")]
 position = Vector2(1736, 125)
 norm_pos = Vector2(1736, 125)
+
+[node name="Rug" parent="ThingParent" unique_id=766970283 instance=ExtResource("26_ntnyb")]
+position = Vector2(1066, 927)
+norm_pos = Vector2(-200, -200)
+anom_pos = Vector2(1066, 927)
 
 [node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
 visible = false
