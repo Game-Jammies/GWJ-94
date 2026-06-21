@@ -6,6 +6,9 @@ signal incorrect_guess
 
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var area: Area2D = %Area2D
+@onready var selecting: AudioStreamPlayer = $"../../AudioManager/selecting"
+@onready var successful_select: AudioStreamPlayer = $"../../AudioManager/successfulSelect"
+@onready var unsuccessful_select: AudioStreamPlayer = $"../../AudioManager/unsuccessfulSelect"
 
 var is_anomaly: bool = false
 var mouse_over: bool = false # Whether the mouse is currently hovering
@@ -66,11 +69,13 @@ func _input(event: InputEvent) -> void:
 		#initial click
 		if event.is_pressed() and mouse_over:
 			mouse_down = true
+			selecting.play()
 			_on_click_started()
 		
 		#mouse release
 		elif not event.is_pressed() and mouse_down:
 			mouse_down = false
+			selecting.stop()
 			_on_click_released()
 
 func _on_click_started() -> void:
@@ -109,13 +114,15 @@ func _on_cursor_thing_select(pos: Vector2) -> void:
 func _thing_selected():
 	"""The thing has been selected"""
 	print("Selected " + self.name)
-	
+	selecting.stop()
 	# Check if thing is anomaly
 	if is_anomaly:
+		successful_select.play()
 		make_normal()
 		anomaly_found.emit(self.name)
 		pass
 	else:
+		unsuccessful_select.play()
 		incorrect_guess.emit()
 		pass
 	pass

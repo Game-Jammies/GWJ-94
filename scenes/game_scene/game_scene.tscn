@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://4cdis3uyemxd" path="res://scenes/map/map.tscn" id="12_3di6p"]
 [ext_resource type="Texture2D" uid="uid://cadty06k0cuxq" path="res://assets/artwork/Godot Jam 94/TowerBase2.png" id="13_1ypwy"]
 [ext_resource type="PackedScene" uid="uid://c0hu76dmonr32" path="res://scenes/thing/potions.tscn" id="13_jytbd"]
+[ext_resource type="PackedScene" uid="uid://bjc3giwq7exva" path="res://scenes/game_scene/upstairs_room.tscn" id="13_up"]
 [ext_resource type="Texture2D" uid="uid://52x6owu68hm8" path="res://assets/artwork/plant_anomaly.png" id="14_dv4yt"]
 [ext_resource type="PackedScene" uid="uid://mmbis6wfk0mv" path="res://scenes/thing/stain_glass_L.tscn" id="14_iprv4"]
 [ext_resource type="PackedScene" uid="uid://bnui2ilab8max" path="res://scenes/thing/stain_glass_R.tscn" id="15_1ypwy"]
@@ -20,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://i7rjioco0cnf" path="res://scenes/thing/cactus.tscn" id="16_hunbn"]
 [ext_resource type="PackedScene" uid="uid://cali3swfkgq7g" path="res://scenes/thing/feather.tscn" id="17_7aaem"]
 [ext_resource type="PackedScene" uid="uid://b1lb5nkoi3nyw" path="res://scenes/thing/books.tscn" id="18_bwcss"]
+[ext_resource type="Texture2D" uid="uid://c6v0evj7gbm1q" path="res://assets/artwork/feather_anomaly.png" id="21_v03ia"]
+[ext_resource type="PackedScene" uid="uid://cnu72bxugic0f" path="res://scenes/AudioManager/audio_manager.tscn" id="23_3mv4o"]
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
@@ -65,7 +68,7 @@ text = "00"
 
 [node name="Map" parent="CanvasLayer" unique_id=2027347819 instance=ExtResource("12_3di6p")]
 
-[node name="cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
+[node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
 
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
@@ -75,6 +78,10 @@ main_menu_scene_path = "uid://c47ojtcb4w8bg"
 ending_scene_path = "uid://u38s4ba85ne2"
 game_won_scene = ExtResource("10_hqmgi")
 game_lost_scene = ExtResource("11_3di6p")
+
+[node name="UpstairsRoom" parent="." unique_id=850423136 instance=ExtResource("13_up")]
+z_index = -10
+position = Vector2(0, -1080)
 
 [node name="TowerBase" type="Sprite2D" parent="." unique_id=3190909]
 z_index = -10
@@ -118,8 +125,32 @@ anom_sprite = ExtResource("15_ojnix")
 position = Vector2(689, 407)
 norm_pos = Vector2(689, 407)
 norm_sprite = ExtResource("8_iprv4")
+anom_pos = Vector2(688, -880)
 
 [node name="Feather" parent="ThingParent" unique_id=196654755 instance=ExtResource("17_7aaem")]
-position = Vector2(960, 536)
-norm_pos = Vector2(960, 536)
-anom_pos = Vector2(960, 536)
+position = Vector2(1097, 534)
+norm_pos = Vector2(1096, 533)
+anom_pos = Vector2(1096, 533)
+anom_sprite = ExtResource("21_v03ia")
+
+[node name="Floor1StairsButton" type="Button" parent="." unique_id=459267678]
+offset_left = 2.0
+offset_top = 842.99994
+offset_right = 77.0
+offset_bottom = 917.6733
+scale = Vector2(3.964634, 3.1727488)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=855955129]
+unique_name_in_owner = true
+offset = Vector2(960, 540)
+position_smoothing_enabled = true
+
+[node name="Floor2StairsButton" type="Button" parent="." unique_id=1472650288]
+offset_left = 4.0
+offset_top = -226.0
+offset_right = 297.0
+
+[node name="AudioManager" parent="." unique_id=389216503 instance=ExtResource("23_3mv4o")]
+
+[connection signal="pressed" from="Floor1StairsButton" to="." method="_on_floor_1_stairs_button_pressed"]
+[connection signal="pressed" from="Floor2StairsButton" to="." method="_on_floor_2_stairs_button_pressed"]

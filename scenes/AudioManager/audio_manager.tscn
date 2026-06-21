@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cnu72bxugic0f"]
+
+[ext_resource type="AudioStream" uid="uid://c7vgy1gqu53sb" path="res://assets/Music/mondamusic-spy-detective-robbery-music-491671.mp3" id="1_uh62l"]
+[ext_resource type="AudioStream" uid="uid://cvog2x8csm6x1" path="res://assets/SFX/glasssfx.mp3" id="2_pi0ky"]
+[ext_resource type="AudioStream" uid="uid://cmoakx6melk4m" path="res://assets/SFX/poitionsfx.mp3" id="3_o3p52"]
+[ext_resource type="AudioStream" uid="uid://ysfyxtjrfv6d" path="res://assets/SFX/bookssfx.wav" id="3_pi0ky"]
+[ext_resource type="AudioStream" uid="uid://cn1ypbiusxo8x" path="res://assets/SFX/stairssfx.mp3" id="4_v2isx"]
+[ext_resource type="AudioStream" uid="uid://dvxaj5ytxac40" path="res://assets/SFX/selecting.mp3" id="5_5yedo"]
+[ext_resource type="AudioStream" uid="uid://blhi6fhjo5v4s" path="res://assets/SFX/successfulSelect.mp3" id="7_v2isx"]
+[ext_resource type="AudioStream" uid="uid://bulm10v4jb0ck" path="res://assets/SFX/unsuccessfulSelect.mp3" id="8_5yedo"]
+[ext_resource type="AudioStream" uid="uid://crrp4phdtnkri" path="res://assets/SFX/win.mp3" id="9_2d5yp"]
+[ext_resource type="AudioStream" uid="uid://dwe7josyjb4se" path="res://assets/SFX/lose.mp3" id="10_40gls"]
+
+[node name="AudioManager" type="Node2D" unique_id=389216503]
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=164605198]
+stream = ExtResource("1_uh62l")
+autoplay = true
+bus = &"Music"
+
+[node name="stainedGlass" type="AudioStreamPlayer" parent="." unique_id=1047069219]
+stream = ExtResource("2_pi0ky")
+bus = &"SFX"
+
+[node name="books" type="AudioStreamPlayer" parent="." unique_id=1628943779]
+stream = ExtResource("3_pi0ky")
+bus = &"SFX"
+
+[node name="catcus" type="AudioStreamPlayer" parent="." unique_id=487143390]
+bus = &"SFX"
+
+[node name="potions" type="AudioStreamPlayer" parent="." unique_id=311530221]
+stream = ExtResource("3_o3p52")
+bus = &"SFX"
+
+[node name="selecting" type="AudioStreamPlayer" parent="." unique_id=574522167]
+stream = ExtResource("5_5yedo")
+bus = &"SFX"
+
+[node name="feather" type="AudioStreamPlayer" parent="." unique_id=972873494]
+bus = &"SFX"
+
+[node name="vineplant" type="AudioStreamPlayer" parent="." unique_id=14329255]
+bus = &"SFX"
+
+[node name="Stairs" type="AudioStreamPlayer" parent="." unique_id=968512067]
+stream = ExtResource("4_v2isx")
+bus = &"SFX"
+
+[node name="successfulSelect" type="AudioStreamPlayer" parent="." unique_id=1042810158]
+stream = ExtResource("7_v2isx")
+bus = &"SFX"
+
+[node name="unsuccessfulSelect" type="AudioStreamPlayer" parent="." unique_id=645459235]
+stream = ExtResource("8_5yedo")
+bus = &"SFX"
+
+[node name="win" type="AudioStreamPlayer" parent="." unique_id=894606844]
+stream = ExtResource("9_2d5yp")
+bus = &"SFX"
+
+[node name="lose" type="AudioStreamPlayer" parent="." unique_id=452422076]
+stream = ExtResource("10_40gls")
+bus = &"SFX"

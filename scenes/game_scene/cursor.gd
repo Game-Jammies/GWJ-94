@@ -7,12 +7,14 @@ class_name Cursor extends Node2D
 @onready var light: PointLight2D = %PointLight2D
 @onready var progress: TextureProgressBar = %TextureProgressBar
 
+
 #how much time to completely fill, increase per second
 @export var fill_time: float = 2.0
 
 #mouse is pushed down
 var mouse_down : bool = false
 var cursor_pos : Vector2
+var cursor_screen_pos : Vector2
 var finished : bool = false
 
 #signals
@@ -24,7 +26,7 @@ func _process(delta: float) -> void:
 		light.global_position = get_global_mouse_position()
 	else:
 		light.global_position = cursor_pos
-	progress.global_position = Vector2(cursor_pos.x - progress.size.x/2, cursor_pos.y - progress.size.y/2)
+	progress.position = Vector2(cursor_screen_pos.x - progress.size.x/2, cursor_screen_pos.y - progress.size.y/2)
 
 	if mouse_down:
 		progress.value += (progress.max_value / fill_time) * delta
@@ -42,6 +44,7 @@ func _input(event: InputEvent) -> void:
 			progress.show()
 			finished = false
 			cursor_pos = get_global_mouse_position()
+			cursor_screen_pos = get_viewport().get_mouse_position()
 
 func _thing_selected() -> void:
 	"""Trigger for when something has been selected"""

@@ -2,7 +2,11 @@
 class_name Event
 
 ## A type of scheduled event that can happen during the game.
-enum Type { DARKEN, MUTATE, TIME_UP }
+enum Type { 
+	DARKEN, ## Dim the scene to restrict the player's vision
+	MUTATE, ## Change an object into its anomaly form
+	TIME_UP ## End the game in a loss
+}
 
 var type: Type
 var date: float

@@ -1,8 +1,16 @@
 class_name GameScene extends Node2D
 
-@onready var cursor = %cursor
+@onready var cursor = %Cursor
 @onready var timer = %Timer
 @onready var win_lose_manager = %WinLoseManager
+@onready var camera: Camera2D = %Camera2D
+@onready var thing_parent: Node2D = %ThingParent
+@onready var stairs: AudioStreamPlayer = $"AudioManager/Stairs"
+@onready var win: AudioStreamPlayer = $"AudioManager/win"
+@onready var lose: AudioStreamPlayer = $"AudioManager/lose"
+
+const FLOOR_1_CAM_POS := Vector2(0.0,0.0)
+const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
 
 @export var TOTAL_ANOMALY_COUNT: int
 @export var DARKEN_START_TIME: float
@@ -13,18 +21,18 @@ class_name GameScene extends Node2D
 var event_list: Array[Event]
 
 var current_anomaly_count: int = 0
-var anomaly_list: Array[Thing] # List of the objects that are currently set as anomalies
 
-var thing_list: Array[Thing] = []
-@onready var thing_parent: Node2D = %ThingParent
+## List of potential Things to mutate. 
+## Populated with visible children of "ThingParent" node, ordered randomly.
+var thing_pool: Array[Thing] = [] 
 
 
 func _ready() -> void:
 	# ----- Get All Things -----
 	for thing in thing_parent.get_children():
 		if thing.visible:
-			thing_list.append(thing)
-	thing_list.shuffle()
+			thing_pool.append(thing)
+	thing_pool.shuffle()
 	
 	
 	# ----- Timer Setup ----- 
@@ -63,10 +71,9 @@ func do_event(event: Event):
 			
 		Event.Type.MUTATE:
 			print("%.2f - DOING MUTATE EVENT" % event.date)
-			var thing = thing_list.pop_back()
+			var thing = thing_pool.pop_back()
 			if thing:
 				thing.make_anomaly()
-				anomaly_list.append(thing)
 			else: 
 				printerr("Could not find a thing to mutate")
 			
@@ -78,14 +85,32 @@ func do_event(event: Event):
 
 
 func win_game() -> void:
+	win.play()
 	win_lose_manager.game_won()
 	timer.stop()
 
 
 func lose_game() -> void: 
+	lose.play()
 	win_lose_manager.game_lost()
 	timer.stop()
 
 
 # Keep a list of all things
 # after some time, convert a thing to its anomoly variant
+
+## Button to go up to the second floor
+func _on_floor_1_stairs_button_pressed() -> void:
+	stairs.play()
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera,"position",FLOOR_2_CAM_POS,1.0)
+
+
+func _on_floor_2_stairs_button_pressed() -> void:
+	stairs.play()
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera,"position",FLOOR_1_CAM_POS,1.0)
