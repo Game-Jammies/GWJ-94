@@ -51,7 +51,7 @@ size = Vector2i(1920, 1080)
 [node name="CutoutParticles" type="CPUParticles2D" parent="ParticleViewport" unique_id=763868193]
 unique_name_in_owner = true
 position = Vector2(468.5, 257.5)
-amount = 25
+amount = 40
 texture = ExtResource("5_75asm")
 draw_order = 1
 emission_shape = 1
@@ -60,8 +60,6 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 20.0
-orbit_velocity_min = -0.05
-orbit_velocity_max = 0.05
 damping_min = 1.0
 damping_max = 1.0
 scale_amount_min = 1.2
