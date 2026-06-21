@@ -33,11 +33,11 @@
 
 [node name="GameScene" type="Node2D" unique_id=275033265]
 script = ExtResource("1_wmtvo")
-TOTAL_ANOMALY_COUNT = 12
-DARKEN_START_TIME = 4.0
+TOTAL_ANOMALY_COUNT = 5
+DARKEN_START_TIME = 5.0
 MUTATE_START_TIME = 10.0
-MUTATE_END_TIME = 90.0
-TOTAL_TIME = 120.0
+MUTATE_END_TIME = 40.0
+TOTAL_TIME = 70.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2108104848]
 
@@ -85,6 +85,24 @@ offset_right = -4.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "Pause"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2128317077]
+custom_minimum_size = Vector2(55, 25)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 68.0
+offset_right = -4.0
+offset_bottom = 93.0
+grow_horizontal = 0
+
+[node name="Counter" type="Label" parent="CanvasLayer/PanelContainer" unique_id=832964061]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12/12"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WinLoseManager" type="Node" parent="." unique_id=1366402157]
 unique_name_in_owner = true

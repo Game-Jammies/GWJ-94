@@ -1,6 +1,7 @@
 class_name GameScene extends Node2D
 
 @onready var cursor: Cursor = %Cursor
+@onready var counter: Label = %Counter
 @onready var timer = %Timer
 @onready var win_lose_manager = %WinLoseManager
 @onready var camera: Camera2D = %Camera2D
@@ -28,6 +29,7 @@ var anomalies_found: int
 func _ready() -> void:
 	cursor.show()
 	anomalies_found = 0
+	counter.text = "%d/%d" % [anomalies_found, TOTAL_ANOMALY_COUNT]
 	
 	
 	# ----- Populate Thing Pool -----
@@ -57,7 +59,6 @@ func _ready() -> void:
 	event_list.append(Event.new(Event.Type.TIME_UP, TOTAL_TIME))
 
 
-
 func _process(_delta: float) -> void:
 	var i = 0
 	while i < event_list.size():
@@ -67,8 +68,12 @@ func _process(_delta: float) -> void:
 			do_event(event)
 		else: 
 			i += 1
+	
+	counter.text = "%d/%d" % [anomalies_found, TOTAL_ANOMALY_COUNT]
+	
 	if anomalies_found == TOTAL_ANOMALY_COUNT:
 		win_game()
+
 
 func do_event(event: Event):
 	match event.type:
@@ -86,8 +91,6 @@ func do_event(event: Event):
 			
 		Event.Type.TIME_UP:
 			lose_game()
-	pass
-
 
 
 func win_game() -> void:
