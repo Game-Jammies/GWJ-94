@@ -16,9 +16,6 @@ shader_parameter/OutlineColor = Color(1, 0.9411765, 0, 1)
 shader_parameter/is_hovered = false
 shader_parameter/Width = 10.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slcck"]
-size = Vector2(142, 186)
-
 [node name="VinePlant" type="Node2D" unique_id=865879477]
 script = ExtResource("1_cmobr")
 norm_sprite = ExtResource("3_tuhcf")
@@ -33,10 +30,9 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.39215687)
 material = SubResource("ShaderMaterial_kwhnr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1599315777]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1599463567]
 position = Vector2(8, -88)
-shape = SubResource("RectangleShape2D_slcck")
-debug_color = Color(0, 0.6, 0.7, 0.42)
+polygon = PackedVector2Array(0, -115, 109, -71, 127, -17, 102, 118, 166, 218, 135, 246, 68, 173, 60, 95, 35, 180, 47, 274, 4, 274, -18, 215, -54, 262, -96, 276, -98, 213, -169, 80, -174, 0, -143, -54, -56, -56)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
