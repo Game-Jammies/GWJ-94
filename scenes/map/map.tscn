@@ -14,12 +14,13 @@ mouse_filter = 2
 
 [node name="Map" type="Button" parent="." unique_id=2048296726]
 layout_mode = 0
-offset_left = 1753.0
-offset_top = 1001.0
-offset_right = 1897.0
-offset_bottom = 1060.0
+offset_left = 25.0
+offset_top = 997.0
+offset_right = 169.0
+offset_bottom = 1056.0
 button_mask = 0
-text = "Map"
+text = "Hover to 
+Show Map"
 script = ExtResource("1_tqkkf")
 
 [node name="Control" type="Control" parent="." unique_id=1154178428]
