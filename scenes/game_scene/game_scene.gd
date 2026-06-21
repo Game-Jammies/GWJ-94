@@ -6,6 +6,9 @@ class_name GameScene extends Node2D
 @onready var camera: Camera2D = %Camera2D
 @onready var thing_parent: Node2D = %ThingParent
 @onready var canvas_modulate: CanvasModulate = %CanvasModulate
+@onready var sfx_stairs: AudioStreamPlayer = $"AudioManager/Stairs"
+@onready var sfx_win:    AudioStreamPlayer = $"AudioManager/win"
+@onready var sfx_lose:   AudioStreamPlayer = $"AudioManager/lose"
 
 const FLOOR_1_CAM_POS := Vector2(0.0, 0.0)
 const FLOOR_2_CAM_POS := Vector2(0.0, -1080.0)
@@ -90,12 +93,14 @@ func do_event(event: Event):
 
 
 func win_game() -> void:
+	sfx_win.play()
 	timer.stop()
 	canvas_modulate.color = initial_color
 	win_lose_manager.game_won()
 
 
 func lose_game() -> void: 
+	sfx_lose.play()
 	timer.stop()
 	canvas_modulate.color = initial_color
 	win_lose_manager.game_lost()
@@ -106,6 +111,7 @@ func lose_game() -> void:
 
 ## Button to go up to the second floor
 func _on_floor_1_stairs_button_pressed() -> void:
+	sfx_stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -113,6 +119,7 @@ func _on_floor_1_stairs_button_pressed() -> void:
 
 
 func _on_floor_2_stairs_button_pressed() -> void:
+	sfx_stairs.play()
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
