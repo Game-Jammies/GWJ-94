@@ -114,7 +114,6 @@ anom_pos = Vector2(1521, 322)
 anom_sprite = ExtResource("14_dv4yt")
 
 [node name="Cactus" parent="ThingParent" unique_id=1435210064 instance=ExtResource("16_hunbn")]
-z_index = -1
 position = Vector2(1409, 191)
 norm_pos = Vector2(1409, 191)
 anom_pos = Vector2(1409, 191)
@@ -176,3 +175,4 @@ position_smoothing_enabled = true
 
 [node name="Cursor" parent="." unique_id=956710945 instance=ExtResource("5_ducuf")]
 unique_name_in_owner = true
+visible = false

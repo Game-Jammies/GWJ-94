@@ -26,6 +26,7 @@ var anomalies_found: int
 
 
 func _ready() -> void:
+	cursor.show()
 	anomalies_found = 0
 	
 	
