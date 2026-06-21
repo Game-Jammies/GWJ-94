@@ -105,7 +105,6 @@ norm_pos = Vector2(1681, 414)
 anom_pos = Vector2(1681, 414)
 
 [node name="Books" parent="ThingParent" unique_id=2140462739 instance=ExtResource("18_bwcss")]
-visible = false
 position = Vector2(640, 727)
 norm_pos = Vector2(640, 727)
 
